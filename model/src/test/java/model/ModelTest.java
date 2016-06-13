@@ -81,5 +81,5 @@ public class ModelTest {
 		this.model.loadMessage("ID");
 		Assert.assertEquals("Salamat pagi dunia", this.model.getMessage());
 	}
-
+	
 }

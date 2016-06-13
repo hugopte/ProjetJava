@@ -3,7 +3,7 @@ package contract;
 /**
  * The Interface IController.
  *
- * @author Jean-Aymeric Diet
+ * 
  */
 public interface IController {
 
@@ -16,7 +16,8 @@ public interface IController {
 	 * Order perform.
 	 *
 	 * @param controllerOrder
-	 *          the controller order
+	 * 
+	 * the controller order
 	 */
 	public void orderPerform(ControllerOrder controllerOrder);
 }
