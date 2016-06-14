@@ -1,14 +1,14 @@
 package element;
 
-import map.map;
-
 import java.awt.Image;
+
+import contract.ILorannMap;
 
 
 public abstract class Element  {
 	private ISprite				sprite;
 	private Permeability	permeability;
-	private map	nettleWorld;
+	private ILorannMap	map;
 
 	public Element(final ISprite sprite, final Permeability permeability) {
 		this.setSprite(sprite);
@@ -31,15 +31,17 @@ public abstract class Element  {
 		this.permeability = permeability;
 	}
 
-	protected map getNettleWorld() {
-		return this.nettleWorld;
+	protected ILorannMap getLorannMap() {
+		return this.map;
 	}
 
-	public void setNettleWorld(final map nettleWorld) {
-		this.nettleWorld = nettleWorld;
+	public void setLorannMap(final ILorannMap map) {
+		this.map =map;
 	}
 
 	public Image getImage() {
 		return this.getSprite().getImage();
 	}
+
+	
 }
