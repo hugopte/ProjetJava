@@ -6,6 +6,7 @@ import javax.swing.SwingUtilities;
 
 import contract.ControllerOrder;
 import contract.IController;
+import contract.ILorannMap;
 import contract.IModel;
 import contract.IView;
 
@@ -81,4 +82,6 @@ public class View implements IView, Runnable {
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
 	}
+
+	
 }

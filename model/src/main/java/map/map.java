@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 import contract.ILorannMap;
+import contract.IModel;
 import element.mobile.Hero;
 import element.mobile.Mobile;
 import element.motionless.MotionlessElement;
@@ -16,7 +17,7 @@ import element.motionless.*;
 
 
 
-public class map extends Observable implements ILorannMap {
+public class map extends Observable implements IModel {
 
 	public MotionlessElement		elements[][];
 	public final ArrayList<Mobile>	mobiles;
@@ -112,6 +113,21 @@ public class map extends Observable implements ILorannMap {
 	public void setMobileHasChanged() {
 		this.setChanged();
 		this.notifyObservers();
+	}
+
+	public String getMessage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void loadMessage(String key) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Observable getObservable() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

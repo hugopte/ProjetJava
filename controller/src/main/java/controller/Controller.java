@@ -2,10 +2,10 @@ package controller;
 
 import contract.ControllerOrder;
 import contract.IController;
-import contract.ILorannMap;
 import contract.IModel;
 import contract.IView;
 import element.mobile.Hero;
+import model.Model;
 
 
 // TODO: Auto-generated Javadoc
@@ -13,9 +13,8 @@ import element.mobile.Hero;
  * The Class Controller.
  */
 public class Controller implements IController {
-	private final ILorannMap	map;
-	private ILorannMap			LorannMeeting;
-	private IView				lorrannFrame;
+	private Model	map;
+	private IView	lorrannFrame;
 	
 	
 
@@ -34,21 +33,18 @@ public class Controller implements IController {
 	 * @param model
 	 *          the model
 	 */
-	public Controller(/*final IView view, final IModel model,*/ILorannMap map) {
-		//this.setView(view);
-		//this.setModel(model);
-		this.map = map;
-		this.map.addMobile(new Hero(null), 0, 15);
+	public Controller( IView view, IModel model) {
+		this.setView(view);
+		this.setModel(model);
+		
+		this.model.addMobile(new Hero(null), 0, 15);
 	}
 		
-	private ILorannMap getLorannMap() {
-		return this.map;
+	private IModel getIModel() {
+		return this.model;
 	}
 
-	private ILorannMap getLorannMeeting() {
-		return this.LorannMeeting;
-	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 

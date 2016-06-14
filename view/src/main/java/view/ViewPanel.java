@@ -1,9 +1,13 @@
 package view;
 
 import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
@@ -64,7 +68,20 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
+		try {
+			 
+			Image img1 = ImageIO.read(new File("bone.png"));
+			 
+			graphics.drawImage(img1, 50 , 50 , this);
+			 
+			  
+			 
+			}
+			 
+			catch (IOException e) {
+			 
+			e.printStackTrace();
+			 
+			}
 	}
 }

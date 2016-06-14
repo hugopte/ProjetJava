@@ -4,6 +4,7 @@ import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.TreeSet;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -20,6 +21,7 @@ class ViewFrame extends JFrame implements KeyListener {
 
 	/** The model. */
 	private IModel			model;
+	private TreeSet<Integer> set = new TreeSet<Integer>();
 
 	/** The controller. */
 	private IController		controller;
@@ -131,7 +133,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new ViewPanel(this));
-		this.setSize(400 + this.getInsets().left + this.getInsets().right, 60 + this.getInsets().top + this.getInsets().bottom);
+		this.setSize(400 , 600 );
 		this.setLocationRelativeTo(null);
 	}
 

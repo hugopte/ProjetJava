@@ -1,8 +1,8 @@
 package main;
 
+import contract.IModel;
 import controller.Controller;
 import map.map;
-import model.Model;
 import view.View;
 
 /*
@@ -19,10 +19,10 @@ public abstract class Main {
 	 *          the arguments
 	 */
 	public static void main(final String[] args) {
-		final map model = new map();
-		//final View view = new View(model);
-		final Controller controller = new Controller(/*view,*/ model);
-		//view.setController(controller);
+		final IModel map = new map();
+		final View view = new View(map);
+		final Controller controller = new Controller(view, map);
+		view.setController(controller);
 		controller.control();
 	}
 }
