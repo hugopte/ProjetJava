@@ -1,13 +1,12 @@
 package element.motionless;
 
-import element.*;
 import element.Permeability;
 
 
-public class Purse extends MotionlessElement {
+public class Purse extends MotionLessElememt {
 
 	public Purse() {
-		super(new Sprite("land.jpg"), Permeability.PENETRABLE, ' ');
+		super("bourse.png", Permeability.PENETRABLE );
 		// TODO Auto-generated constructor stub
 	}
 

@@ -1,12 +1,11 @@
 package element.motionless;
 
 import element.Permeability;
-import element.Sprite;
 
-public class Empty extends MotionlessElement {
+public class Empty extends MotionLessElememt {
 
 	public Empty() {
-		super(new Sprite( "bag.png"),Permeability.PENETRABLE, 'G');
+		super("bag.png",Permeability.PENETRABLE);
 		// TODO Auto-generated constructor stub
 	}
 

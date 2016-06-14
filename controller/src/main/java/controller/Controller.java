@@ -13,18 +13,12 @@ import model.Model;
  * The Class Controller.
  */
 public class Controller implements IController {
-	private Model	map;
-	private IView	lorrannFrame;
-	
-	
-
-	
-	/** The view. */
-	private IView		view;
-
-	/** The model. */
 	private IModel	model;
+	private IView	view;
+	
+	
 
+	
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -37,7 +31,7 @@ public class Controller implements IController {
 		this.setView(view);
 		this.setModel(model);
 		
-		this.model.addMobile(new Hero(null), 0, 15);
+		
 	}
 		
 	private IModel getIModel() {

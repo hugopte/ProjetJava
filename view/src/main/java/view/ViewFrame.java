@@ -1,14 +1,15 @@
 package view;
-
+import java.util.TreeSet;
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.TreeSet;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
+import javax.swing.Timer;
 import contract.IController;
 import contract.IModel;
 
@@ -17,14 +18,15 @@ import contract.IModel;
  *
  * @author Jean-Aymeric Diet
  */
-class ViewFrame extends JFrame implements KeyListener {
+class ViewFrame extends JFrame implements KeyListener , ActionListener
+{
 
 	/** The model. */
-	private IModel			model;
-	private TreeSet<Integer> set = new TreeSet<Integer>();
-
+	private IModel	model;
+	private TreeSet<Integer> TreeSet= new TreeSet<Integer>();
+	private Timer timer = new Timer(1000,this);
 	/** The controller. */
-	private IController		controller;
+	private IController	controller;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -697358409737458175L;
 
@@ -133,7 +135,9 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new ViewPanel(this));
-		this.setSize(400 , 600 );
+		//this.setSize(400 + this.getInsets().left + this.getInsets().right, 60 + this.getInsets().top + this.getInsets().bottom);
+		this.setSize(this.model.getD());
+		this.setPreferredSize(this.model.getD());
 		this.setLocationRelativeTo(null);
 	}
 
@@ -143,7 +147,8 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @param message
 	 *          the message
 	 */
-	public void printMessage(final String message) {
+	public void printMessage(final String message) 
+	{
 		JOptionPane.showMessageDialog(null, message);
 	}
 
@@ -152,7 +157,8 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
 	 */
-	public void keyTyped(final KeyEvent e) {
+	public void keyTyped(final KeyEvent e) 
+	{
 
 	}
 
@@ -161,8 +167,17 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
-	public void keyPressed(final KeyEvent e) {
-		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
+	public void keyPressed(final KeyEvent e) 
+	{
+		this.timer.stop();
+		int x=0 ,y=0;
+		TreeSet.add(e.getExtendedKeyCode());
+		x=TreeSet.first();
+		if(TreeSet.first() != TreeSet.last())
+		{
+			y=TreeSet.last();
+		}		
+		this.getController().orderPerform(View.keyCodeToControllerOrder(x,y));
 	}
 
 	/*
@@ -170,7 +185,17 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
-	public void keyReleased(final KeyEvent e) {
-
+	public void keyReleased(final KeyEvent e) 
+	{
+		this.timer.start();
+		TreeSet.remove(e.getExtendedKeyCode());
 	}
+
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
 }

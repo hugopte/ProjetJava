@@ -1,14 +1,16 @@
 package contract;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.ImageIcon;
 
 import org.w3c.dom.Element;
 
 import element.mobile.Hero;
 import element.mobile.Mobile;
-import element.motionless.MotionlessElement;
 
 /**
  * The Interface IModel.
@@ -16,23 +18,32 @@ import element.motionless.MotionlessElement;
  * @author Jean-Aymeric Diet
  */
 public interface IModel {
-	public int getWidth();
 
-	public int getHeight();
+	
+		/**
+		 * Load the message.
+		 *
+		 * @param key
+		 *          the key
+		 */
+		void loadMessage(String key);
 
-	public MotionlessElement getElements(int x, int y);
-
-	public Hero getHero();
-
-	public void addMobile(Mobile mobile, int x, int y);
-
-	public void addMobile(Hero hero, int x, int y);
-
-	public void setMobileHasChanged();
-
-	public Element[][] getElements();
-
-	public ArrayList<Mobile> getMobiles();
-
-	public void addObserver(Observer o);
+		/**
+		 * Gets the observable.
+		 *
+		 * @return the observable
+		 */
+		Observable getObservable();
+		
+		
+		Dimension getD();
+		
+		ImageIcon getImageElement(int y, int x);
+		
+		
+		void MoveUP();
+		void MoveDW();
+		void MoveLF();
+		void MoveRT();
+	
 }

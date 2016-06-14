@@ -6,7 +6,6 @@ import javax.swing.SwingUtilities;
 
 import contract.ControllerOrder;
 import contract.IController;
-import contract.ILorannMap;
 import contract.IModel;
 import contract.IView;
 
@@ -38,23 +37,42 @@ public class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
-		switch (keyCode) {
+	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode, final int keyCode2) 
+	{
+		switch (keyCode) 
+		{
 			case KeyEvent.VK_UP:
-				return ControllerOrder.UP;
+				switch(keyCode2)
+				{
+					//case KeyEvent.VK_LEFT: return ControllerOrder.UPPERLEFT;
+					//case KeyEvent.VK_RIGHT: return ControllerOrder.UPPERRIGHT;
+					default: return ControllerOrder.UP;
+				}
 			case KeyEvent.VK_DOWN:
-				return ControllerOrder.DOWN;
+				switch(keyCode2)
+				{
+					//case KeyEvent.VK_LEFT: return ControllerOrder.DOWNLEFT;
+					//case KeyEvent.VK_RIGHT: return ControllerOrder.DOWNRIGHT;
+					default: return ControllerOrder.DOWN;
+				}
 			case KeyEvent.VK_LEFT:
-				return ControllerOrder.LEFT;
+				switch(keyCode2)
+				{
+					//case KeyEvent.VK_UP: return ControllerOrder.UPPERLEFT;
+					//case KeyEvent.VK_DOWN: return ControllerOrder.DOWNLEFT;
+					default: return ControllerOrder.LEFT;
+				}
 			case KeyEvent.VK_RIGHT:
-				return ControllerOrder.RIGHT;
-			case KeyEvent.VK_SPACE:
-			return ControllerOrder.SHOOT;
+				switch(keyCode2)
+				{
+					//case KeyEvent.VK_UP: return ControllerOrder.UPPERRIGHT;
+					//case KeyEvent.VK_DOWN: return ControllerOrder.DOWNRIGHT;
+					default: return ControllerOrder.RIGHT;
+				}
 			default:
 				return ControllerOrder.NOP;
 		}
 	}
-
 	/*
 	 * (non-Javadoc)
 	 *
@@ -81,6 +99,11 @@ public class View implements IView, Runnable {
 	 */
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
+	}
+
+	public void setMeeting(ILorannMap map) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

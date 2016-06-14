@@ -1,12 +1,11 @@
 package element.motionless;
 
 import element.Permeability;
-import element.Sprite;
 
-public class Bone extends MotionlessElement {
+public class Bone extends MotionLessElememt {
 	
 	public Bone() {
-		super(new Sprite( "bone.png"),Permeability.BLOCKING, 'C');
+		super("image/bone",Permeability.BLOCKING );
 		// TODO Auto-generated constructor stub
 	}
 }

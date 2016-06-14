@@ -1,79 +1,71 @@
-package element.mobile;
-
-import java.awt.Point;
-
-import contract.ILorannMap;
+package Element.Motion;
 import element.Element;
-import element.ISprite;
 import element.Permeability;
 
+public abstract class Mobile extends Element 
+{
+	protected int X;
+	protected int Y;
+	protected int lastX;
+	protected int lastY;
+	protected int NextX;
+	protected int NextY;
+	
+	
+	
+	public void setLastX(int lastX) {
+		this.lastX = lastX;
+	}
 
+	public void setLastY(int lastY) {
+		this.lastY = lastY;
+	}
 
-public abstract class Mobile extends Element  {  //implementer avec la vue
-	private final Point position;
+	public void setX(int currentX) {
+		this.X = currentX;
+	}
 
-	public Mobile(final ISprite sprite) {
-		super(sprite, Permeability.BLOCKING);
-		this.position = new Point();
+	public void setY(int currentY) {
+		this.Y = currentY;
+	}
+
+	public int getNextX() {
+		return NextX;
+	}
+
+	public void setNextX(int nextX) {
+		NextX = nextX;
+	}
+
+	public int getNextY() {
+		return NextY;
+	}
+
+	public void setNextY(int nextY) {
+		NextY = nextY;
 	}
 
 	public int getX() {
-		return this.position.x;
-	}
-
-	protected void setX(final int x) {
-		if ((x >= 0) && (x < this.getLorannMap().getWidth())) {
-			this.position.x = x;
-			this.getLorannMap().setMobileHasChanged();
-		}
+		return X;
 	}
 
 	public int getY() {
-		return this.position.y;
+		return Y;
 	}
 
-	protected void setY(final int y) {
-		if ((y >= 0) && (y < this.getLorannMap().getHeight())) {
-			this.position.y = y;
-			this.getLorannMap().setMobileHasChanged();
-		}
+	public int getLastX() {
+		return lastX;
 	}
 
-	public Point getPosition() {
-		return this.position;
+	public int getLastY() {
+		return lastY;
 	}
 
-	public void setLorannMap(final ILorannMap LorannMap, final int x, final int y) {
-		super.setLorannMap(LorannMap);
-		this.setX(x);
-		this.setY(y);
-	}
+	public Mobile(String picture, Permeability permeability) 
+	{
+		super(picture, permeability);
 
-	private boolean isMovePossible(final int x, final int y) {
-		return (this.getLorannMap().getElements(x, y).getPermeability() != Permeability.BLOCKING);
 	}
+	
 
-	public void moveUp() {
-		if (this.isMovePossible(this.getX(), this.getY() - 1)) {
-			this.setY(this.getY() - 1);
-		}
-	}
-
-	public void moveLeft() {
-		if (this.isMovePossible(this.getX() - 1, this.getY())) {
-			this.setX(this.getX() - 1);
-		}
-	}
-
-	public void moveDown() {
-		if (this.isMovePossible(this.getX(), this.getY() + 1)) {
-			this.setY(this.getY() + 1);
-		}
-	}
-
-	public void moveRight() {
-		if (this.isMovePossible(this.getX() + 1, this.getY())) {
-			this.setX(this.getX() + 1);
-		}
-	}
 }

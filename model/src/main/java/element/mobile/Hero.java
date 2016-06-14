@@ -1,51 +1,58 @@
 package element.mobile;
+import javax.swing.ImageIcon;
 
-import element.ISprite;
-import java.awt.Point;
-import element.Sprite;
+import element.Permeability;
 
-public class Hero extends Mobile {
-	private final Point lastPosition;
-	public Hero(ISprite sprite) {
-		super(new Sprite("hero.png"));
-		// TODO Auto-generated constructor stub
-	}
-	private void saveLastPosition() {
-		if ((this.lastPosition.getX() != this.getPosition().getX()) || (this.lastPosition.getY() != this.getPosition().getY())) {
-			this.lastPosition.setLocation(this.getPosition().x, this.getPosition().y);
-		}
-	}
-
-	@Override
-	public void moveUp() {
-		this.saveLastPosition();
-		super.moveUp();
-	}
-
-	@Override
-	public void moveLeft() {
-		this.saveLastPosition();
-		super.moveLeft();
-	}
-
-	@Override
-	public void moveDown() {
-		this.saveLastPosition();
-		super.moveDown();
-	}
-
-	@Override
-	public void moveRight() {
-		this.saveLastPosition();
-		super.moveRight();
-	}
-
-	public void moveBack() {
-		this.setX(this.lastPosition.x);
-		this.setY(this.lastPosition.y);
-	}
-
-}
+public class Hero extends Mobile
+{
+	private static String HERO_MOVE="C:/ProjetJava/Sprite/lorann.gif";
+	private ImageIcon MoveUp;
+	private ImageIcon MoveDw;
+	private ImageIcon MoveLf;
+	private ImageIcon MoveRt;
+	private ImageIcon LorannGIF;
 	
+	//private boolean alive = true ;
+	
+	
+	//---------------------------------------CONSTRUCTEURS----------------------------------------------------------------------------
 
+	public Hero(int Y, int X) 
+	{
+		super(HERO_MOVE, Permeability.BLOCKING);
+		this.X=X;
+		this.Y=Y;	
+		this.lastX=X;
+		this.lastY=Y;
+		this.MoveUp = new ImageIcon("C:/ProjetJava/Sprite/lorann_u.png");
+		this.MoveDw = new ImageIcon("C:/ProjetJava/Sprite/lorann_b.png");
+		this.MoveLf = new ImageIcon("C:/ProjetJava/Sprite/lorann_l.png");
+		this.MoveRt = new ImageIcon("C:/ProjetJava/Sprite/lorann_r.png");
+		this.LorannGIF = new ImageIcon("C:/ProjetJava/Sprite/lorann.gif");
+	}
+
+	public ImageIcon getMoveUp() {
+		return MoveUp;
+	}
+
+	public ImageIcon getMoveDw() {
+		return MoveDw;
+	}
+
+	public ImageIcon getMoveLf() {
+		return MoveLf;
+	}
+
+	public ImageIcon getMoveRt() {
+		return MoveRt;
+	}
+
+
+	public ImageIcon getLorannGIF() {
+		return LorannGIF;
+	}
+	
+	
+	
+	
 }

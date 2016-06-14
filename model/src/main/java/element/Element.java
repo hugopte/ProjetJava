@@ -1,47 +1,43 @@
 package element;
 
-import java.awt.Image;
-
-import contract.ILorannMap;
+import javax.swing.ImageIcon;
 
 
 public abstract class Element  {
-	private ISprite				sprite;
+	private ImageIcon		ElemIcon;
 	private Permeability	permeability;
-	private ILorannMap	map;
+	private String	        IconName;
 
-	public Element(final ISprite sprite, final Permeability permeability) {
-		this.setSprite(sprite);
-		this.setPermeability(permeability);
+	public Element( String Image ,Permeability permeability) {
+		this.permeability = permeability ;
+		this.ElemIcon = new ImageIcon(Image);
+		this.IconName = Image;
 	}
 
-	public ISprite getSprite() {
-		return this.sprite;
+	public ImageIcon getElemIcon() {
+		return ElemIcon;
 	}
 
-	private void setSprite(final ISprite sprite) {
-		this.sprite = sprite;
+	public void setElemIcon(ImageIcon elemIcon) {
+		ElemIcon = elemIcon;
 	}
 
 	public Permeability getPermeability() {
-		return this.permeability;
+		return permeability;
 	}
 
-	private void setPermeability(final Permeability permeability) {
+	public void setPermeability(Permeability permeability) {
 		this.permeability = permeability;
 	}
 
-	protected ILorannMap getLorannMap() {
-		return this.map;
+	public String getIconName() {
+		return IconName;
 	}
 
-	public void setLorannMap(final ILorannMap map) {
-		this.map =map;
+	public void setIconName(String iconName) {
+		IconName = iconName;
 	}
 
-	public Image getImage() {
-		return this.getSprite().getImage();
-	}
-
+	
 	
 }
