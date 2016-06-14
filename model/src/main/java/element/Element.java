@@ -1,31 +1,45 @@
 package element;
 
-import javax.swing.ImageIcon;
+import map.map;
 
-public abstract class Element {
+import java.awt.Image;
 
-	public Permeability permeability;
-	public ImageIcon sprite;
-	
-	public Element(Permeability perm, String sprite) {
-		this.permeability = perm;
-		this.sprite = new ImageIcon(getClass().getResource(sprite));
 
+public abstract class Element  {
+	private ISprite				sprite;
+	private Permeability	permeability;
+	private map	nettleWorld;
+
+	public Element(final ISprite sprite, final Permeability permeability) {
+		this.setSprite(sprite);
+		this.setPermeability(permeability);
 	}
 
-	public Permeability getPerm() {
-			return permeability;
-		}
-
-	public void setPerm(Permeability perm) {
-		this.permeability = perm;
+	public ISprite getSprite() {
+		return this.sprite;
 	}
 
-	public ImageIcon getSprite() {
-		return sprite;
+	private void setSprite(final ISprite sprite) {
+		this.sprite = sprite;
 	}
 
-	public void setSprite(String sprite) {
-		this.sprite = new ImageIcon(getClass().getResource(sprite));
+	public Permeability getPermeability() {
+		return this.permeability;
+	}
+
+	private void setPermeability(final Permeability permeability) {
+		this.permeability = permeability;
+	}
+
+	protected map getNettleWorld() {
+		return this.nettleWorld;
+	}
+
+	public void setNettleWorld(final map nettleWorld) {
+		this.nettleWorld = nettleWorld;
+	}
+
+	public Image getImage() {
+		return this.getSprite().getImage();
 	}
 }
