@@ -1,6 +1,9 @@
 package map;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -8,7 +11,8 @@ import contract.ILorannMap;
 import element.mobile.Hero;
 import element.mobile.Mobile;
 import element.motionless.MotionlessElement;
-import element.Element;
+import element.motionless.*;
+
 
 
 
@@ -26,6 +30,7 @@ public class map extends Observable implements ILorannMap {
 
 	public map(final String fileName) throws IOException {
 		this();
+		this.loadFile(fileName);
 	}
 	public int getWidth() {
 		return this.width;
@@ -71,7 +76,24 @@ public class map extends Observable implements ILorannMap {
 		this.hero = hero;                                                                                                                                                           
 		this.setChanged();
 	}
-	
+	private void loadFile(final String fileName) throws IOException {
+		final BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
+		String line;
+		int numLine = 0;
+		line = buffer.readLine();
+		this.width = Integer.parseInt(line);
+		line = buffer.readLine();
+		this.height = Integer.parseInt(line);
+		this.elements = new MotionlessElement[this.getWidth()][this.getHeight()];
+		while ((line = buffer.readLine()) != null) {
+			for (int x = 0; x < line.toCharArray().length; x++) {
+				this.addElement(MotionlessElements.getFromFileSymbol(line.toCharArray()[x]), x, numLine);
+			}
+			numLine++;
+		}
+		buffer.close();
+		this.setChanged();
+	}
 	
 
 

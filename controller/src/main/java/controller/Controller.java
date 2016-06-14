@@ -5,10 +5,8 @@ import contract.IController;
 import contract.ILorannMap;
 import contract.IModel;
 import contract.IView;
-import element.Sprite;
 import element.mobile.Hero;
-import element.mobile.Mobile;
-import model.element.*;
+
 
 // TODO: Auto-generated Javadoc
 /**
@@ -17,7 +15,7 @@ import model.element.*;
 public class Controller implements IController {
 	private final ILorannMap	map;
 	private ILorannMap			LorannMeeting;
-	//private INettleFrame				nettleFrame;
+	private IView				lorrannFrame;
 	
 	
 
@@ -36,9 +34,9 @@ public class Controller implements IController {
 	 * @param model
 	 *          the model
 	 */
-	public Controller(final IView view, final IModel model,ILorannMap map) {
-		this.setView(view);
-		this.setModel(model);
+	public Controller(/*final IView view, final IModel model,*/ILorannMap map) {
+		//this.setView(view);
+		//this.setModel(model);
 		this.map = map;
 		this.map.addMobile(new Hero(null), 18, 15);
 	}
@@ -99,7 +97,7 @@ public class Controller implements IController {
 			case RIGHT:
 				//this.model.moveRight;
 				break;
-			case SHOOT :
+			case SHOOT:
 				//this.model.shoot;
 				break;
 			case NOP:
