@@ -6,9 +6,10 @@ public abstract class MotionlessElements {
 	public static final MotionlessElement    Empty              = new Empty();
 	public static final MotionlessElement 	 HBone				= new HBone();
 	public static final MotionlessElement    VBone 				= new VBone();
+	public static final MotionlessElement    Bone				=new Bone();
 	
 
-	private static MotionlessElement motionlessElements[]	= { Purse,Empty,HBone,VBone };
+	private static MotionlessElement motionlessElements[]	= { Purse,Empty,HBone,VBone,Bone };
 
 	public static MotionlessElement getFromFileSymbol(final char fileSymbol) {
 		for (final MotionlessElement motionlessElement : motionlessElements) {
