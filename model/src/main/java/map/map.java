@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import contract.ILorannMap;
+import element.mobile.Hero;
+import element.mobile.Mobile;
 import element.motionless.MotionlessElement;
+import element.Element;
 
 
 
-
-public class map extends Observable {
+public class map extends Observable implements ILorannMap {
 
 	public MotionlessElement		elements[][];
 	public final ArrayList<Mobile>	mobiles;
@@ -24,9 +27,15 @@ public class map extends Observable {
 	public map(final String fileName) throws IOException {
 		this();
 	}
+	public int getWidth() {
+		return this.width;
+	}
+
+	public int getHeight() {
+		return this.height;
+	}
 	
 
-	@Override
 	public MotionlessElement getElements(final int x, final int y) {
 		if ((x < 0) || (y < 0) || (x >= this.getWidth()) || (y >= this.getHeight())) {
 			return null;
@@ -34,30 +43,48 @@ public class map extends Observable {
 		return this.elements[x][y];
 	}
 
-	@Override
 	public Hero getHero() {
 		return this.hero;
 	}
 
+	
 	private void addElement(final MotionlessElement element, final int x, final int y) {
 		this.elements[x][y] = element;
 		if (element != null) {
-			element.setNettleWorld(this);
+			element.setLorannMap(this);
 		}
 		this.setChanged();
 	}
 
-	@Override
 	public void addMobile(final Mobile mobile, final int x, final int y) {
 		this.mobiles.add(mobile);
-		mobile.setNettleWorld(this, x, y);
+		mobile.setLorannMap(this, x, y);
 		this.setChanged();
 		this.notifyObservers();
 	}
 
-	@Override
 	public void addMobile(final Hero hero, final int x, final int y) {
 		this.setHero(hero);
 		this.addMobile((Mobile) hero, x, y);
 	}
+	private void setHero(final Hero hero) {
+		this.hero = hero;                                                                                                                                                           
+		this.setChanged();
+	}
+	
+	public Element[][] getElements() {
+		return this.elements;
+	}
+
+
+	public ArrayList<Mobile> getMobiles() {
+		return this.mobiles;
+	}
+
+	public void setMobileHasChanged() {
+		this.setChanged();
+		this.notifyObservers();
+	}
+
+
 }
