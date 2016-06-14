@@ -5,6 +5,9 @@ import contract.IController;
 import contract.ILorannMap;
 import contract.IModel;
 import contract.IView;
+import element.Sprite;
+import element.mobile.Hero;
+import element.mobile.Mobile;
 import model.element.*;
 
 // TODO: Auto-generated Javadoc
@@ -37,7 +40,7 @@ public class Controller implements IController {
 		this.setView(view);
 		this.setModel(model);
 		this.map = map;
-		this.map.addMobile(new Hero(), 18, 15);
+		this.map.addMobile(new Hero(null), 18, 15);
 	}
 		
 	private ILorannMap getLorannMap() {

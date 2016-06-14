@@ -72,10 +72,16 @@ public class map extends Observable implements ILorannMap {
 		this.setChanged();
 	}
 	
-	public Element[][] getElements() {
-		return this.elements;
+	
+
+
+	public org.w3c.dom.Element[][] getElements() {
+		return (org.w3c.dom.Element[][]) elements;
 	}
 
+	public void setElements(MotionlessElement[][] elements) {
+		this.elements = elements;
+	}
 
 	public ArrayList<Mobile> getMobiles() {
 		return this.mobiles;
