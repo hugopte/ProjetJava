@@ -4,10 +4,10 @@ import element.*;
 import element.Permeability;
 
 
-public class Purse extends Element {
+public class Purse extends MotionlessElement {
 
 	public Purse() {
-		super(new Sprite("land.jpg"), Permeability.PENETRABLE);
+		super(new Sprite("land.jpg"), Permeability.PENETRABLE, ' ');
 		// TODO Auto-generated constructor stub
 	}
 

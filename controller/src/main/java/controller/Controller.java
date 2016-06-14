@@ -2,15 +2,23 @@ package controller;
 
 import contract.ControllerOrder;
 import contract.IController;
+import contract.ILorannMap;
 import contract.IModel;
 import contract.IView;
+import model.element.*;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class Controller.
  */
 public class Controller implements IController {
+	private final ILorannMap	map;
+	private ILorannMap			LorannMeeting;
+	//private INettleFrame				nettleFrame;
+	
+	
 
+	
 	/** The view. */
 	private IView		view;
 
@@ -25,9 +33,19 @@ public class Controller implements IController {
 	 * @param model
 	 *          the model
 	 */
-	public Controller(final IView view, final IModel model) {
+	public Controller(final IView view, final IModel model,ILorannMap map) {
 		this.setView(view);
 		this.setModel(model);
+		this.map = map;
+		this.map.addMobile(new Hero(), 18, 15);
+	}
+		
+	private ILorannMap getLorannMap() {
+		return this.map;
+	}
+
+	private ILorannMap getLorannMeeting() {
+		return this.LorannMeeting;
 	}
 
 	/*
