@@ -24,7 +24,7 @@ public class map extends Observable implements ILorannMap {
 	private int					height;
 	private Hero  	  			hero;
 
-	private map() {
+	public map() {
 		this.mobiles = new ArrayList<Mobile>();
 	}
 

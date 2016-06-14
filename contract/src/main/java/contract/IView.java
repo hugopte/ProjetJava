@@ -7,9 +7,7 @@ package contract;
  * @author Jean-Aymeric Diet
  */
 public interface IView {
-	void setMeeting(ILorannMap nettleWorld);
-
-	void setViewMode(int viewMode);
+	void setMeeting(ILorannMap map);
 
 	void printMessage(final String message);
 }

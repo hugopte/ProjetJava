@@ -38,7 +38,7 @@ public class Controller implements IController {
 		//this.setView(view);
 		//this.setModel(model);
 		this.map = map;
-		this.map.addMobile(new Hero(null), 18, 15);
+		this.map.addMobile(new Hero(null), , 15);
 	}
 		
 	private ILorannMap getLorannMap() {
@@ -67,6 +67,7 @@ public class Controller implements IController {
 	private void setView(final IView view) {
 		this.view = view;
 	}
+	
 
 	/**
 	 * Sets the model.
