@@ -21,24 +21,11 @@ public class GenMap
 		this.Elem = new Element [20][12];
 		
 		this.CreateMap();
-		this.ConsoleMap();
 		this.createModel();
 		System.out.println("GenMap");
 	}
 	
-	public void ConsoleMap()
-	{
-		int x =0 ,y = 0;
-		for(y=0; y<12; y++)
-		{
-			x=0;
-			System.out.println("");
-			for(x=0; x<20; x++)
-			{
-				System.out.print(map[y][x]);
-			}
-		}
-	}
+	
 	
 	public void CreateMap()
 	{	System.out.println("CreateMap");
@@ -54,15 +41,15 @@ public class GenMap
 	         {           
 	            for (byte bit : buf) 					 // On affiche ce qu'a lu notre boucle au format byte et au format char
 	            {
-	               System.out.print("\t" + bit + "(" + (char) bit + ")");
-	               System.out.println("");
-	               if(x<20 && bit != 10 )
+	               System.out.print( (char) bit );
+	               
+	               if(x<12 && bit != 10 )
 	               {
 	            	   map [y][x]= (char)bit;
 	            	   //DBConnection.addMap(i,x,y,(char)bit);
 	            	   x++;
 	               }
-	               else if(y<12-1 && bit != 10)
+	               else if(y<20-1 && bit != 10)
 	               {
 	            	   y++;
 	            	   x=0;
@@ -98,9 +85,9 @@ public class GenMap
 	public void createModel()
 	{
 		int x=0, y=0;
-		for(y=0; y<12	; y++)
+		for(y=0; y<20	; y++)
 		{
-			for(x=0; x<20; x++)
+			for(x=0; x<12; x++)
 			{
 				switch(this.map[y][x])
 				{
@@ -112,7 +99,10 @@ public class GenMap
 					default : break;		
 				}	
 			}
-		}		
+		}
+		System.out.println("Creation du modele");
+		
+		
 	}
 	
 	

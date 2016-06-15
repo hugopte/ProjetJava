@@ -26,7 +26,7 @@ public class Model extends Observable implements IModel
 	 */
 	public Model() 
 	{	System.out.print("creation du modele   ");
-		this.setGenMap(new GenMap ("C:\Users\Hugo PETTE\git\ProjetJava\model\images\map1.txt", this));	
+		this.setGenMap(new GenMap ("C:/Users/RICOUARTTANGUY/git/ProjetJava/model/images/map1.txt", this));	
 		this.setLorann(new Hero(5,10));
 		
 	}
