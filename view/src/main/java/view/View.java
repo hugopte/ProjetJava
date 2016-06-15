@@ -101,10 +101,7 @@ public class View implements IView, Runnable {
 		this.viewFrame.setController(controller);
 	}
 
-	public void setMeeting(ILorannMap map) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	
 }

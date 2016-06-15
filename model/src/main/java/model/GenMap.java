@@ -11,7 +11,6 @@ public class GenMap
 	public char[][] map; 
 	public Element [][] Elem;
 	private String MapName;
-	private int MapLevel=0;
 	private Model model;
 	
 	public GenMap(String MapName, Model model)
@@ -30,11 +29,11 @@ public class GenMap
 	public void ConsoleMap()
 	{
 		int x =0 ,y = 0;
-		for(y=0; y<20; y++)
+		for(y=0; y<12; y++)
 		{
 			x=0;
 			System.out.println("");
-			for(x=0; x<12; x++)
+			for(x=0; x<20; x++)
 			{
 				System.out.print(map[y][x]);
 			}
@@ -57,13 +56,13 @@ public class GenMap
 	            {
 	               System.out.print("\t" + bit + "(" + (char) bit + ")");
 	               System.out.println("");
-	               if(x<12 && bit != 10 )
+	               if(x<20 && bit != 10 )
 	               {
 	            	   map [y][x]= (char)bit;
 	            	   //DBConnection.addMap(i,x,y,(char)bit);
 	            	   x++;
 	               }
-	               else if(y<20-1 && bit != 10)
+	               else if(y<12-1 && bit != 10)
 	               {
 	            	   y++;
 	            	   x=0;
@@ -99,9 +98,9 @@ public class GenMap
 	public void createModel()
 	{
 		int x=0, y=0;
-		for(y=0; y<20	; y++)
+		for(y=0; y<12	; y++)
 		{
-			for(x=0; x<12; x++)
+			for(x=0; x<20; x++)
 			{
 				switch(this.map[y][x])
 				{
@@ -123,14 +122,7 @@ public class GenMap
 	
 	
 
-	public int getMapLevel() {
-		return MapLevel;
-	}
-
-	public void setMapLevel(int mapLevel) {
-		MapLevel = mapLevel;
-	}
-
+	
 	public String getMapName() {
 		return MapName;
 	}

@@ -1,7 +1,8 @@
 package model;
 
-import java.sql.SQLException;
 import java.util.Observable;
+
+import javax.swing.ImageIcon;
 
 import contract.IModel;
 import element.Permeability;
@@ -25,8 +26,8 @@ public class Model extends Observable implements IModel
 	 */
 	public Model() 
 	{
-		this.genMap = new GenMap ("level1.txt", this);	
-		this.Lorann = new Hero(5,10);
+		this.setGenMap(new GenMap ("level1.txt", this));	
+		this.setLorann(new Hero(5,10));
 		System.out.print("creation du modele   ");
 	}
 
@@ -74,5 +75,83 @@ public class Model extends Observable implements IModel
 	 */
 	public Observable getObservable() {
 		return this;
+	}
+
+
+
+	public void loadMessage(String key) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	public ImageIcon getImageElement(int y, int x) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	public void MoveUP() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	public void MoveDW() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	public void MoveLF() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	public void MoveRT() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	public GenMap getGenMap() {
+		return genMap;
+	}
+
+
+
+	public void setGenMap(GenMap genMap) {
+		this.genMap = genMap;
+	}
+
+
+
+	public Hero getLorann() {
+		return Lorann;
+	}
+
+
+
+	public void setLorann(Hero lorann) {
+		Lorann = lorann;
+	}
+
+
+
+	public Permeability getPermeability() {
+		return permeability;
+	}
+
+
+
+	public void setPermeability(Permeability permeability) {
+		this.permeability = permeability;
 	}
 }

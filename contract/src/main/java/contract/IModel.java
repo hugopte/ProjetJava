@@ -36,7 +36,7 @@ public interface IModel {
 		Observable getObservable();
 		
 		
-		Dimension getD();
+
 		
 		ImageIcon getImageElement(int y, int x);
 		

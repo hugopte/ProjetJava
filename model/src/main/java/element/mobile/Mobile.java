@@ -1,4 +1,4 @@
-package Element.Motion;
+package element.mobile;
 import element.Element;
 import element.Permeability;
 
