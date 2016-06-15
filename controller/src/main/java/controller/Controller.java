@@ -2,9 +2,7 @@ package controller;
 
 import contract.ControllerOrder;
 import contract.IController;
-import contract.IModel;
 import contract.IView;
-import element.mobile.Hero;
 import model.Model;
 
 
@@ -13,7 +11,7 @@ import model.Model;
  * The Class Controller.
  */
 public class Controller implements IController {
-	private IModel	model;
+	private Model	model;
 	private IView	view;
 	
 	
@@ -27,18 +25,13 @@ public class Controller implements IController {
 	 * @param model
 	 *          the model
 	 */
-	public Controller( IView view, IModel model) {
+	public Controller( IView view, Model model) {
 		this.setView(view);
 		this.setModel(model);
 		
 		
 	}
 		
-	private IModel getIModel() {
-		return this.model;
-	}
-
-	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -65,7 +58,7 @@ public class Controller implements IController {
 	 * @param model
 	 *          the new model
 	 */
-	private void setModel(final IModel model) {
+	private void setModel(final Model model) {
 		this.model = model;
 	}
 
@@ -99,5 +92,11 @@ public class Controller implements IController {
 				break;
 		}
 	}
+
+	public Model getModel() {
+		return model;
+	}
+
+	
 
 }

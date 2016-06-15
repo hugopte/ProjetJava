@@ -102,6 +102,5 @@ public class View implements IView, Runnable {
 	}
 
 	
-
 	
 }

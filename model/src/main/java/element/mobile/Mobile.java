@@ -12,7 +12,11 @@ public abstract class Mobile extends Element
 	protected int NextY;
 	
 	
-	
+	public Mobile(String picture, Permeability permeability) 
+	{
+		super(picture, permeability);
+
+	}
 	public void setLastX(int lastX) {
 		this.lastX = lastX;
 	}
@@ -61,11 +65,7 @@ public abstract class Mobile extends Element
 		return lastY;
 	}
 
-	public Mobile(String picture, Permeability permeability) 
-	{
-		super(picture, permeability);
-
-	}
+	
 	
 
 }

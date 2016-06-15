@@ -1,8 +1,6 @@
 package main;
 
-import contract.IModel;
 import controller.Controller;
-import map.map;
 import model.Model;
 import view.View;
 

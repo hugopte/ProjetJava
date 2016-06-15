@@ -1,16 +1,6 @@
 package contract;
 
-import java.awt.Dimension;
-import java.util.ArrayList;
 import java.util.Observable;
-import java.util.Observer;
-
-import javax.swing.ImageIcon;
-
-import org.w3c.dom.Element;
-
-import element.mobile.Hero;
-import element.mobile.Mobile;
 
 /**
  * The Interface IModel.
@@ -38,12 +28,6 @@ public interface IModel {
 		
 
 		
-		ImageIcon getImageElement(int y, int x);
 		
-		
-		void MoveUP();
-		void MoveDW();
-		void MoveLF();
-		void MoveRT();
 	
 }
