@@ -9,8 +9,8 @@ import view.View;
  *
  * @author Jean-Aymeric Diet
  */
-public abstract class Main {
-
+public class Main {
+	
 	/**
 	 * The main method.
 	 *

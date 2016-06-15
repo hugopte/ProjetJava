@@ -1,9 +1,12 @@
 package controller;
 
+
+
 import contract.ControllerOrder;
 import contract.IController;
+import contract.IModel;
 import contract.IView;
-import model.Model;
+
 
 
 // TODO: Auto-generated Javadoc
@@ -11,7 +14,7 @@ import model.Model;
  * The Class Controller.
  */
 public class Controller implements IController {
-	private Model	model;
+	private IModel	model;
 	private IView	view;
 	
 	
@@ -25,7 +28,7 @@ public class Controller implements IController {
 	 * @param model
 	 *          the model
 	 */
-	public Controller( IView view, Model model) {
+	public Controller( IView view, IModel model) {
 		this.setView(view);
 		this.setModel(model);
 		
@@ -58,7 +61,7 @@ public class Controller implements IController {
 	 * @param model
 	 *          the new model
 	 */
-	private void setModel(final Model model) {
+	private void setModel(final IModel model) {
 		this.model = model;
 	}
 
@@ -93,7 +96,7 @@ public class Controller implements IController {
 		}
 	}
 
-	public Model getModel() {
+	public IModel getModel() {
 		return model;
 	}
 

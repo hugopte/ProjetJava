@@ -25,10 +25,10 @@ public class Model extends Observable implements IModel
 	 * Instantiates a new model.
 	 */
 	public Model() 
-	{
-		this.setGenMap(new GenMap ("level1.txt", this));	
+	{	System.out.print("creation du modele   ");
+		this.setGenMap(new GenMap ("C:\Users\Hugo PETTE\git\ProjetJava\model\images\map1.txt", this));	
 		this.setLorann(new Hero(5,10));
-		System.out.print("creation du modele   ");
+		
 	}
 
 
