@@ -3,9 +3,9 @@
    x    x          x
 CwwC    x          x
 x G CwwwCwwwwwC    C
-xG          B P    C
+xG          B      C
 x G CwwwCwwwwwC    C
 CwwC    x          x
-   x    x          x
+   x    x    P     x
    CwwC x         CC
       CwCwwwwwwwwwC 

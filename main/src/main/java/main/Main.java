@@ -22,6 +22,6 @@ public class Main {
 		final View view = new View(model);
 		final Controller Controller = new Controller(view, model);
 		view.setController(Controller);
-		Controller.control();
+		//Controller.control();
 	}
 }

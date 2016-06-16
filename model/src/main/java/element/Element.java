@@ -11,13 +11,13 @@ public abstract class Element  {
 	public Image			Elem;
 	private Permeability	permeability;
 	private String	        NomImage;
-	public    int J;
-	public    int K;
+	private     int Y;
+	private	    int X;
 
-	public Element( String NomImage ,Permeability permeability,int J,int K) {
+	public Element( String NomImage ,Permeability permeability,int PositionY,int PositionX) {
 		this.permeability = permeability ;
-		this.J = J;
-		this.K = K;
+		this.Y = PositionY;
+		this.X = PositionX;
 		this.NomImage = NomImage;
 		try {
 			this.Elem = ImageIO.read(new File(NomImage));
@@ -55,24 +55,27 @@ public abstract class Element  {
 	}
 
 
-	public  int getJ() {
-		return J;
+	public int getY() {
+		return Y;
 	}
 
 
-	public  void setJ(int j) {
-		J = j;
+	public void setY(int y) {
+		Y = y;
 	}
 
 
-	public  int getK() {
-		return K;
+	public int getX() {
+		return X;
 	}
 
 
-	public  void setK(int k) {
-		K = k;
+	public void setX(int x) {
+		X = x;
 	}
+
+
+	
 
 
 	
