@@ -20,7 +20,7 @@ class ViewFrame extends JFrame implements KeyListener , ActionListener
 {
 
 	/** The model. */
-	private static IModel	model;
+	private  IModel	model;
 		
 	/** The controller. */
 	private IController	controller;
@@ -110,8 +110,8 @@ class ViewFrame extends JFrame implements KeyListener , ActionListener
 	 *
 	 * @return the model
 	 */
-	protected static IModel getModel() {
-		return model;
+	protected  IModel getModel() {
+		return this.model;
 	}
 
 	/**
@@ -121,7 +121,7 @@ class ViewFrame extends JFrame implements KeyListener , ActionListener
 	 *          the new model
 	 */
 	private void setModel(final IModel model) {
-		ViewFrame.model = model;
+		this.model = model;
 	}
 
 	/**

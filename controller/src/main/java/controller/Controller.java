@@ -20,6 +20,10 @@ public class Controller implements IController {
 	
 
 	
+	public IView getView() {
+		return view;
+	}
+
 	/**
 	 * Instantiates a new controller.
 	 *
