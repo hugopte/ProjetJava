@@ -22,5 +22,5 @@ public interface IController {
 	 * the controller order
 	 * @throws IOException 
 	 */
-	public void orderPerform(ControllerOrder controllerOrder) throws IOException;
+	public void orderPerform(ControllerOrder controllerOrder) ;
 }

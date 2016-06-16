@@ -29,6 +29,10 @@ public interface IModel {
 		Observable getObservable();
 		public GenMap getGenMap();
 		public Image getImage(int x, int y);
+		void MoveUP();
+		void MoveDW();
+		void MoveLF();
+		void MoveRT();
 		
 
 		

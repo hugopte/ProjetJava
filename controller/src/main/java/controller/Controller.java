@@ -2,8 +2,6 @@ package controller;
 
 
 
-import java.io.IOException;
-
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
@@ -76,19 +74,21 @@ public class Controller implements IController {
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	public void orderPerform( ControllerOrder controllerOrder)throws IOException  {
+	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 			case UP:
-				System.out.println("UP");//this.model.moveUp;
+				System.out.println("UP");
+				this.model.MoveUP();
 				break;
 			case DOWN:
-				System.out.println("DOWN");//this.model.moveDown;
+				System.out.println("DOWN");
+				this.model.MoveDW();
 				break;
 			case LEFT:
-				//this.model.moveLeft;
+				this.model.MoveLF();
 				break;
 			case RIGHT:
-				//this.model.moveRight;
+				this.model.MoveRT();
 				break;
 			case SHOOT:
 				//this.model.shoot;
@@ -107,7 +107,7 @@ public class Controller implements IController {
 	}
 
 	public void control() {
-		// TODO Auto-generated method stub
+		this.view.printMessage("hello");
 		
 	}
 

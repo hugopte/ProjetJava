@@ -37,39 +37,20 @@ public class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode /*final int keyCode2*/) 
+	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode ) 
 	{
 		switch (keyCode) 
 		{
 			case KeyEvent.VK_UP:
 				System.out.println("haut" );
-				return  ControllerOrder.UP; 
-				
-				
+				return  ControllerOrder.UP; 					
 			case KeyEvent.VK_DOWN:
-				//switch(keyCode2)
-				
-					//case KeyEvent.VK_LEFT: return ControllerOrder.DOWNLEFT;
-					//case KeyEvent.VK_RIGHT: return ControllerOrder.DOWNRIGHT;
-					//default: 
 					System.out.println("bas" );
 						return ControllerOrder.DOWN;
-				
-			case KeyEvent.VK_LEFT:
-				//switch(keyCode2)
-				
-					//case KeyEvent.VK_UP: return ControllerOrder.UPPERLEFT;
-					//case KeyEvent.VK_DOWN: return ControllerOrder.DOWNLEFT;
-					//default: 
+			case KeyEvent.VK_LEFT:				 
 					System.out.println("droite" );
-						return ControllerOrder.LEFT;
-				
-			case KeyEvent.VK_RIGHT:
-				//switch(keyCode2)
-				
-					//case KeyEvent.VK_UP: return ControllerOrder.UPPERRIGHT;
-					//case KeyEvent.VK_DOWN: return ControllerOrder.DOWNRIGHT;
-					//default: 
+						return ControllerOrder.LEFT;				
+			case KeyEvent.VK_RIGHT:				
 					System.out.println("right" );
 						return ControllerOrder.RIGHT;
 				
@@ -82,9 +63,9 @@ public class View implements IView, Runnable {
 	 *
 	 * @see contract.IView#printMessage(java.lang.String)
 	 */
-	public void printMessage(final String message) {
-		this.viewFrame.printMessage(message);
-	}
+	//public void printMessage(final String message) {
+	//	this.viewFrame.printMessage(message);
+	//}
 
 	/*
 	 * (non-Javadoc)
@@ -103,6 +84,11 @@ public class View implements IView, Runnable {
 	 */
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
+	}
+
+	public void printMessage(String string) {
+		this.viewFrame.printMessage(string);
+		
 	}
 
 	

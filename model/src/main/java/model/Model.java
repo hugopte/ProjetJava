@@ -60,8 +60,8 @@ public class Model extends Observable implements IModel
 	{
 		for(x=0; x<20; x++)
 		{
-			if (this.genMap.getElem(y,x) == this.genMap.getElem(Hero.getY(),Hero.getX()) && this.genMap.Elem[y+Y][x+X].getPermeability()!= Permeability.BLOCKING   ){
-				this.genMap.Elem[y][x]= new Hero(y,x);
+			if (this.genMap.getElem(y,x) == this.genMap.getEle))   ){
+				this.genMap.Elem[y+Y][x+X]= new Hero(y,x);
 				this.genMap.Elem[y-Y][x-X] = new Empty(y,x);
 				
 				
@@ -70,7 +70,7 @@ public class Model extends Observable implements IModel
 				
 				
 				
-			}
+		}
 		
 	
 		}
@@ -83,7 +83,7 @@ public class Model extends Observable implements IModel
 
 
 	public void MoveUP() {
-		//MoveHero(+1,0);
+		MoveHero(+1,0);
 		System.out.println("Haut");
 		
 	}
@@ -91,21 +91,21 @@ public class Model extends Observable implements IModel
 
 
 	public void MoveDW() {
-	//	MoveHero(-1,0);// TODO Auto-generated method stub
+		MoveHero(-1,0);// TODO Auto-generated method stub
 		System.out.println("bas");
 	}
 
 
 
 	public void MoveLF() {
-		//MoveHero(0,-1);// TODO Auto-generated method stub
+		MoveHero(0,-1);// TODO Auto-generated method stub
 		System.out.println("gauche");
 	}
 
 
 
 	public void MoveRT() {
-		//MoveHero(0,+1);// TODO Auto-generated method stub
+		MoveHero(0,+1);// TODO Auto-generated method stub
 		System.out.println("droite");
 	}
 
@@ -125,6 +125,10 @@ public class Model extends Observable implements IModel
 	{
 		return this.genMap.Elem[x][y].getImage();
 	}
+
+
+
+	
 
 
 

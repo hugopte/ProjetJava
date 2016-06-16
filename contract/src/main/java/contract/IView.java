@@ -7,6 +7,8 @@ package contract;
  * @author Jean-Aymeric Diet
  */
 public interface IView {
+
+	void printMessage(String string);
 	
-	void printMessage(final String message);
+	
 }
