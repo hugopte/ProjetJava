@@ -26,7 +26,7 @@ public class Model extends Observable implements IModel
 	 */
 	public Model() 
 	{	System.out.print("creation du modele   ");
-		this.setGenMap(new GenMap ("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map5.txt", this));	
+		this.setGenMap(new GenMap ("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map1.txt", this));	
 		
 		
 	}
@@ -56,13 +56,17 @@ public class Model extends Observable implements IModel
 	public void MoveHero (int X, int Y){
 	int x = 0 ;
 	int y = 0 ;
+	//System.out.println(.getK()+"-"+Hero.getJ());
 	for(y=0; y<12	; y++)
 	{
 		for(x=0; x<20; x++)
 		{
-			if (this.genMap.getElem(y,x) == this.genMap.getEle))   ){
-				this.genMap.Elem[y+Y][x+X]= new Hero(y,x);
-				this.genMap.Elem[y-Y][x-X] = new Empty(y,x);
+			System.out.println();
+			//if (this.genMap.getElem(y,x) == this.genMap.getElem(Hero.getK(),Hero.getJ())){
+				//ystem.out.println(" Bouger Hero ");
+				//System.out.println(Hero.getK()+Hero.getJ());
+				
+				//this.genMap.Elem[y-Y][x-X] = new Empty(y,x);
 				
 				
 				
@@ -70,7 +74,7 @@ public class Model extends Observable implements IModel
 				
 				
 				
-		}
+		//}
 		
 	
 		}
@@ -78,8 +82,8 @@ public class Model extends Observable implements IModel
 	}
 		this.setChanged();
 		this.notifyObservers();	
-		
-	}
+	}	
+	
 
 
 	public void MoveUP() {

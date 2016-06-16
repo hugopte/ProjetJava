@@ -7,9 +7,10 @@ public class Hero extends Mobile
 	
 	
 	
-	public Hero(int Y, int X) 
-	{
-		super("C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_l.png" , Permeability.BLOCKING, Y, X);
+	public Hero(int J, int K) 
+	{	super("C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_l.png" , Permeability.BLOCKING, J, K);
+		System.out.println("Création du Hero");
+		System.out.println(J +"-"+K);
 		
 
 	
@@ -17,8 +18,5 @@ public class Hero extends Mobile
 	
 	}
 
-	public  void MoveHero(int i, int j) {
-		// TODO Auto-generated method stub
-		
-	}
+
 }

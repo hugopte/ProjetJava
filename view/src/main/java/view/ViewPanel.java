@@ -36,7 +36,7 @@ public void paintComponent(Graphics g){
 		for(x=0; x<20; x++)
 		{
 		g.drawImage(viewframe.getModel().getImage(y, x) ,x*32,y*32, 32, 32, this);
-		System.out.println("Image créé");
+		
 		}
 	}
   }               
@@ -55,7 +55,7 @@ public void setViewframe(ViewFrame viewframe) {
 
 
 public void update(Observable o, Object arg) {
-	// TODO Auto-generated method stub
+	this.repaint();
 	
 }
 }

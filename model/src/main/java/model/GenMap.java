@@ -109,7 +109,7 @@ public class GenMap
 			for(x=0; x<20; x++)
 			{
 				
-				System.out.print(this.map [y][x]);
+				System.out.print(this.Elem[y][x]);
 				switch(this.map[y][x])
 				{
 					case 'P' :this.Elem[y][x] = new Hero(x,y);								break;
