@@ -2,6 +2,8 @@ package controller;
 
 
 
+import java.io.IOException;
+
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
@@ -74,7 +76,7 @@ public class Controller implements IController {
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	public void orderPerform( ControllerOrder controllerOrder) {
+	public void orderPerform( ControllerOrder controllerOrder)throws IOException  {
 		switch (controllerOrder) {
 			case UP:
 				System.out.println("UP");//this.model.moveUp;

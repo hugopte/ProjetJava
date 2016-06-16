@@ -6,6 +6,10 @@ package contract;
  
 public enum ControllerOrder {
 
+	UPPERRIGHT,
+	UPPERLEFT,
+	DOWNLEFT,
+	DOWNRIGHT,
 	
 	UP,  	//haut
 	DOWN, 	//bas

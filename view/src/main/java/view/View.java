@@ -37,13 +37,14 @@ public class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	protected static  ControllerOrder keyCodeToControllerOrder(final int keyCode /*final int keyCode2*/) 
+	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode /*final int keyCode2*/) 
 	{
 		switch (keyCode) 
 		{
 			case KeyEvent.VK_UP:
 				System.out.println("haut" );
 				return  ControllerOrder.UP; 
+				
 				
 			case KeyEvent.VK_DOWN:
 				//switch(keyCode2)

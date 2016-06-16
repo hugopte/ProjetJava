@@ -83,7 +83,7 @@ public class Model extends Observable implements IModel
 
 
 	public void MoveUP() {
-		MoveHero(+1,0);
+		//MoveHero(+1,0);
 		System.out.println("Haut");
 		
 	}
@@ -91,21 +91,21 @@ public class Model extends Observable implements IModel
 
 
 	public void MoveDW() {
-		MoveHero(-1,0);// TODO Auto-generated method stub
+	//	MoveHero(-1,0);// TODO Auto-generated method stub
 		System.out.println("bas");
 	}
 
 
 
 	public void MoveLF() {
-		MoveHero(0,-1);// TODO Auto-generated method stub
+		//MoveHero(0,-1);// TODO Auto-generated method stub
 		System.out.println("gauche");
 	}
 
 
 
 	public void MoveRT() {
-		MoveHero(0,+1);// TODO Auto-generated method stub
+		//MoveHero(0,+1);// TODO Auto-generated method stub
 		System.out.println("droite");
 	}
 
