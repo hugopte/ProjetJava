@@ -1,25 +1,48 @@
 package element;
 
-import javax.swing.ImageIcon;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 
 public abstract class Element  {
-	private ImageIcon		ElemIcon;
+	public Image			Elem;
 	private Permeability	permeability;
-	private String	        IconName;
+	private String	        NomImage;
+	private static int X;
+	private static int Y;
 
-	public Element( String Image ,Permeability permeability) {
+	public Element( String NomImage ,Permeability permeability,int x,int y) {
 		this.permeability = permeability ;
-		this.ElemIcon = new ImageIcon(Image);
-		this.IconName = Image;
+		
+		this.NomImage = NomImage;
+		try {
+			this.Elem = ImageIO.read(new File(NomImage));
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			
+		}
+		
 	}
 
-	public ImageIcon getElemIcon() {
-		return ElemIcon;
+	
+	public String getNomImage() {
+		return NomImage;
 	}
 
-	public void setElemIcon(ImageIcon elemIcon) {
-		ElemIcon = elemIcon;
+	public void setNomImage(String nomImage) {
+		NomImage = nomImage;
+	}
+
+	public Image getImage() {
+		return Elem;
+	}
+
+	public void setImage(Image elem) {
+		Elem = elem;
 	}
 
 	public Permeability getPermeability() {
@@ -30,13 +53,27 @@ public abstract class Element  {
 		this.permeability = permeability;
 	}
 
-	public String getIconName() {
-		return IconName;
+
+	public static  int getX() {
+		return X;
 	}
 
-	public void setIconName(String iconName) {
-		IconName = iconName;
+
+	public void setX(int x) {
+		X = x;
 	}
+
+
+	public static int getY() {
+		return Y;
+	}
+
+
+	public void setY(int y) {
+		Y = y;
+	}
+
+	
 
 	
 	

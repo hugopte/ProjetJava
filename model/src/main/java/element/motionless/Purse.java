@@ -3,11 +3,11 @@ package element.motionless;
 import element.Permeability;
 
 
-public class Purse extends MotionLessElememt {
-
-	public Purse() {
-		super("bourse.png", Permeability.PENETRABLE );
-		// TODO Auto-generated constructor stub
+public class Purse extends MotionLessElement {
+	
+	public Purse(int X,int Y) {
+		super("C:/Users/Hugo PETTE/git//ProjetJava/Sprite/purse.png", Permeability.PENETRABLE, X ,Y );
+		//System.out.println("creation bourse"+ X+"--"+Y);// TODO Auto-generated constructor stub
 	}
 
 }

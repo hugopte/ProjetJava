@@ -37,38 +37,41 @@ public class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode, final int keyCode2) 
+	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode /*final int keyCode2*/) 
 	{
 		switch (keyCode) 
 		{
 			case KeyEvent.VK_UP:
-				switch(keyCode2)
-				{
-					//case KeyEvent.VK_LEFT: return ControllerOrder.UPPERLEFT;
-					//case KeyEvent.VK_RIGHT: return ControllerOrder.UPPERRIGHT;
-					default: return ControllerOrder.UP;
-				}
+				System.out.println("haut" );
+				return  ControllerOrder.UP; 
+				
 			case KeyEvent.VK_DOWN:
-				switch(keyCode2)
-				{
+				//switch(keyCode2)
+				
 					//case KeyEvent.VK_LEFT: return ControllerOrder.DOWNLEFT;
 					//case KeyEvent.VK_RIGHT: return ControllerOrder.DOWNRIGHT;
-					default: return ControllerOrder.DOWN;
-				}
+					//default: 
+					System.out.println("bas" );
+						return ControllerOrder.DOWN;
+				
 			case KeyEvent.VK_LEFT:
-				switch(keyCode2)
-				{
+				//switch(keyCode2)
+				
 					//case KeyEvent.VK_UP: return ControllerOrder.UPPERLEFT;
 					//case KeyEvent.VK_DOWN: return ControllerOrder.DOWNLEFT;
-					default: return ControllerOrder.LEFT;
-				}
+					//default: 
+					System.out.println("droite" );
+						return ControllerOrder.LEFT;
+				
 			case KeyEvent.VK_RIGHT:
-				switch(keyCode2)
-				{
+				//switch(keyCode2)
+				
 					//case KeyEvent.VK_UP: return ControllerOrder.UPPERRIGHT;
 					//case KeyEvent.VK_DOWN: return ControllerOrder.DOWNRIGHT;
-					default: return ControllerOrder.RIGHT;
-				}
+					//default: 
+					System.out.println("right" );
+						return ControllerOrder.RIGHT;
+				
 			default:
 				return ControllerOrder.NOP;
 		}

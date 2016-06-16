@@ -40,9 +40,9 @@ public class Controller implements IController {
 	 * 
 	 * @see contract.IController#control()
 	 */
-	public void control() {
-		this.view.printMessage("Debut du jeu");
-	}
+//	public void control() {
+//		this.view.printMessage("Debut du jeu");
+//	}
 
 	/**
 	 * Sets the view.
@@ -70,13 +70,13 @@ public class Controller implements IController {
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	public void orderPerform(final ControllerOrder controllerOrder) {
+	public void orderPerform( ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 			case UP:
-				//this.model.moveUp;
+				System.out.println("UP");//this.model.moveUp;
 				break;
 			case DOWN:
-				//this.model.moveDown;
+				System.out.println("DOWN");//this.model.moveDown;
 				break;
 			case LEFT:
 				//this.model.moveLeft;
@@ -98,6 +98,11 @@ public class Controller implements IController {
 
 	public IModel getModel() {
 		return model;
+	}
+
+	public void control() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

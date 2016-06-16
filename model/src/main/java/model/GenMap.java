@@ -1,15 +1,18 @@
 package model;
 
 import java.io.*;
+import java.util.ArrayList;
+
 import element.motionless.*;
 import element.Element;
+import element.mobile.Hero;
 
 
 
 public class GenMap
 {
 	public char[][] map; 
-	public Element [][] Elem;
+	public  Element  Elem[] [];
 	private String MapName;
 	private Model model;
 	
@@ -17,14 +20,22 @@ public class GenMap
 	{
 		this.setMapName(MapName); 
 		this.setModel(model);
-		this.map = new char[20][12];
-		this.Elem = new Element [20][12];
-		
+		this.map = new char[12][20];
+		this.Elem  = new Element [12] [20];  		
 		this.CreateMap();
 		this.createModel();
 		System.out.println("GenMap");
 	}
 	
+	public  Element getElem(int y, int x) {
+		return Elem[y][x];
+	}
+
+	public  void setElem(Element elem, int y, int x) 
+	{
+		Elem[y][x] = elem;
+	}
+
 	
 	
 	public void CreateMap()
@@ -41,15 +52,15 @@ public class GenMap
 	         {           
 	            for (byte bit : buf) 					 // On affiche ce qu'a lu notre boucle au format byte et au format char
 	            {
-	               System.out.print( (char) bit );
 	               
-	               if(x<12 && bit != 10 )
+	               if(x<20 && bit != 10 )
 	               {
+	            	   
 	            	   map [y][x]= (char)bit;
-	            	   //DBConnection.addMap(i,x,y,(char)bit);
+	            	   
 	            	   x++;
 	               }
-	               else if(y<20-1 && bit != 10)
+	               else if(y<12-1 && bit != 10)
 	               {
 	            	   y++;
 	            	   x=0;
@@ -82,33 +93,39 @@ public class GenMap
 	      }
 	}
 	
+	public char[][] getMap() {
+		return map;
+	}
+
+	public void setMap(char[][] map) {
+		this.map = map;
+	}
+
 	public void createModel()
 	{
 		int x=0, y=0;
-		for(y=0; y<20	; y++)
+		for(y=0; y<12	; y++)
 		{
-			for(x=0; x<12; x++)
+			for(x=0; x<20; x++)
 			{
+				
+				System.out.print(this.Elem[y][x]);
 				switch(this.map[y][x])
 				{
-					case 'C': this.Elem [y][x] = new Bone();								break;				
-					case ' ': this.Elem [y][x] = new Empty();								break;
-					case 'w': this.Elem [y][x] = new HBone();								break;	
-					case 'x' : this.Elem [y][x] = new VBone();								break;
-					case 'G' : this.Elem [y][x] = new Purse();								break;
-					default : break;		
+					case 'P' :this.Elem[y][x] = new Hero(x,y);								break;
+					case 'C': this.Elem[y][x]  =  new Bone(x,y);						   	break;				
+					case ' ': this.Elem[y][x]  = new Empty(x,y);							break;
+					case 'w': this.Elem[y][x]  = new HBone(x,y);							break;	
+					case 'x' :this.Elem[y][x]  = new VBone(x,y);							break;
+					case 'G' :this.Elem[y][x]  = new Purse(x,y);							break;
+					case 'B' :this.Elem[y][x] = new crystalBall(x,y);						break;
+					default  :this.Elem[y][x]  = new Empty(x,y);							break;		
 				}	
 			}
+			System.out.println("");
 		}
-		System.out.println("Creation du modele");
-		
 		
 	}
-	
-	
-	
-	
-	
 	
 	
 
