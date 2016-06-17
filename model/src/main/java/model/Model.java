@@ -73,7 +73,9 @@ public class Model extends Observable implements IModel
 				Score = Score+650;
 				
 			}
-			else{}
+			else if(genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()== Permeability.DOORCLOSED){
+				System.out.println("Vous etes mort");
+			}
 			this.genMap.Elem[Hero.getXH()][Hero.getYH()] =  new Hero(Hero.getYH(),Hero.getXH()) ;
 			Hero.setXH(Hero.getXH()-X);
 			 Hero.setYH(Hero.getYH()-Y);

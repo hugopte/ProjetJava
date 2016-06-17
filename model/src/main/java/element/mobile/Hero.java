@@ -12,7 +12,6 @@ public class Hero extends Mobile
 	
 	public Hero(int PositionYH, int PositionXH) 
 	{	super("C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_l.png" , Permeability.BLOCKING, PositionYH, PositionXH);
-		System.out.println("Création du Hero");
 		Hero.setYH (PositionYH);
 		Hero.setXH(PositionXH);
 		System.out.println(getYH() + "<--yh xh -->  " +getXH());

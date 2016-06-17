@@ -119,6 +119,7 @@ public class GenMap
 					case 'x' :this.Elem[y][x]  = new VBone(x,y);							break;
 					case 'G' :this.Elem[y][x]  = new Purse(x,y);							break;
 					case 'B' :this.Elem[y][x]  = new crystalBall(x,y);						break;
+					case 'D' : this.Elem[y][x] = new Door(x,y);								break;
 					default  :this.Elem[y][x]  = new Empty(x,y);							break;		
 				}	
 			}
