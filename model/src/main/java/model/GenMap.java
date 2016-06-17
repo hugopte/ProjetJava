@@ -112,8 +112,8 @@ public class GenMap
 				//System.out.print(this.Elem[y][x]);
 				switch(this.map[y][x])
 				{
-					case 'P' :this.Elem[y][x]  = new Hero(x,y); System.out.println(y+"-"+x);								break;
-					case 'C': this.Elem[y][x]  =  new Bone(x,y);						   	break;				
+					case 'P' :this.Elem[y][x]  = new Hero(x,y);								break;
+					case 'C': this.Elem[y][x]  = new Bone(x,y);						   	break;				
 					case ' ': this.Elem[y][x]  = new Empty(x,y);							break;
 					case 'w': this.Elem[y][x]  = new HBone(x,y);							break;	
 					case 'x' :this.Elem[y][x]  = new VBone(x,y);							break;

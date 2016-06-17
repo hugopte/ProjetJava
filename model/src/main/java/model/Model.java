@@ -8,6 +8,7 @@ import element.Permeability;
 import element.mobile.Hero;
 import element.motionless.Bone;
 import element.motionless.Empty;
+import element.motionless.Purse;
 
 /**
  * The Class Model.
@@ -20,7 +21,7 @@ public class Model extends Observable implements IModel
 	
 	private GenMap genMap;
 	
-	private int Score;
+	private int Score = 0;
 	
 	
 	

@@ -33,6 +33,7 @@ public interface IModel {
 		void MoveDW();
 		void MoveLF();
 		void MoveRT();
+		int getScore();
 		
 
 		

@@ -5,14 +5,13 @@ import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
  
 public class ViewPanel extends JPanel implements Observer { 
 
 	private ViewFrame viewframe;
-	public int y;
-	public int x;
-
+	
 
 
 
@@ -23,12 +22,13 @@ public class ViewPanel extends JPanel implements Observer {
 		this.setViewframe(viewframe);
 		viewframe.getModel().getObservable().addObserver(this);
 		setBackground(Color.BLACK);
+		
 	}
 
 	
 public void paintComponent(Graphics g){
 	
- 
+
     System.out.println("Vue exécutée !"); 
     int x=0, y=0;
 	for(y=0; y<12	; y++)
@@ -38,8 +38,12 @@ public void paintComponent(Graphics g){
 		g.drawImage(viewframe.getModel().getImage(y, x) ,x*32,y*32, 32, 32, this);
 		
 		}
+		
 	}
-  }               
+	g.drawString(Integer.toString(viewframe.getModel().getScore()), 400, 400);
+	
+  } 
+
 
 
 
