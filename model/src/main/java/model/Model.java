@@ -76,7 +76,7 @@ public class Model extends Observable implements IModel
 				
 			}
 			else if(genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()== Permeability.DOORCLOSED){
-				System.out.println("Vous etes mort");
+				dead();
 			}
 			else if(genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()== Permeability.CRYSTALBALL){
 				int x=0, y=0;
@@ -92,17 +92,17 @@ public class Model extends Observable implements IModel
 				}
 			}
 			else if(genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()== Permeability.DOOROPEN){
-				
-				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
-				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
-				System.out.println("!!!!!!!!          !!!!!!!!");
-				System.out.println("!!!!!!!!          !!!!!!!!");
-				System.out.println("!!!!!!!!   Gagné  !!!!!!!!");
-				System.out.println("!!!!!!!!          !!!!!!!!");
-				System.out.println("!!!!!!!!          !!!!!!!!");
-				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
-				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
-				
+				System.out.println("           !!!!!!!!!!!!!!!!!!!!!!!!!!");
+				System.out.println("           !!!!!!!!!!!!!!!!!!!!!!!!!!");
+				System.out.println("           !!!!!!!!!!!!!!!!!!!!!!!!!!");
+				System.out.println("           !!!!!!!!          !!!!!!!!");
+				System.out.println("           !!!!!!!!          !!!!!!!!");
+				System.out.println("           !!!!!!!!   Gagné  !!!!!!!!");
+				System.out.println("           !!!!!!!!          !!!!!!!!");
+				System.out.println("           !!!!!!!!          !!!!!!!!");
+				System.out.println("           !!!!!!!!!!!!!!!!!!!!!!!!!!");
+				System.out.println("           !!!!!!!!!!!!!!!!!!!!!!!!!!");
+				System.out.println("           !!!!!!!!!!!!!!!!!!!!!!!!!!");
 			}
 			this.genMap.Elem[Hero.getXH()][Hero.getYH()] =  new Hero(Hero.getYH(),Hero.getXH()) ;
 			Hero.setXH(Hero.getXH()-X);
@@ -203,7 +203,20 @@ public class Model extends Observable implements IModel
 		MoveHero(-1,+1);
 		
 	}
-
+	public void dead(){
+		Hero.setImagehero("C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_l.png");
+		
+		this.setChanged();
+		this.notifyObservers();
+		Hero.setImagehero("C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_2.png");			
+		this.setChanged();
+		this.notifyObservers();
+		Hero.setImagehero("C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_3.png");
+		
+		this.setChanged();
+		this.notifyObservers();
+		Hero.setImagehero("C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_4.png");
+	}
 
 
 //	public void anim() {

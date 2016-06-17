@@ -1,11 +1,10 @@
 package view;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.JLabel;
+
 import javax.swing.JPanel;
  
 public class ViewPanel extends JPanel implements Observer { 
@@ -21,7 +20,7 @@ public class ViewPanel extends JPanel implements Observer {
 	public ViewPanel(final ViewFrame viewframe) {
 		this.setViewframe(viewframe);
 		viewframe.getModel().getObservable().addObserver(this);
-		setBackground(Color.BLACK);
+		
 		
 	}
 
@@ -29,7 +28,7 @@ public class ViewPanel extends JPanel implements Observer {
 public void paintComponent(Graphics g){
 	
 
-    System.out.println("Vue exécutée !"); 
+    
     int x=0, y=0;
 	for(y=0; y<12	; y++)
 	{
@@ -40,7 +39,7 @@ public void paintComponent(Graphics g){
 		}
 		
 	}
-	g.drawString(Integer.toString(viewframe.getModel().getScore()), 400, 400);
+	g.drawString(Integer.toString(viewframe.getModel().getScore()), 100, 400);
 	
   } 
 
