@@ -1,5 +1,5 @@
 package element;
 
 public enum Permeability {
-	BLOCKING, PENETRABLE, 
+	BLOCKING, PENETRABLE,SCORING,CRYSTALBALL 
 }

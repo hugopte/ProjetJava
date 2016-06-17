@@ -6,6 +6,7 @@ import java.util.Observable;
 import contract.IModel;
 import element.Permeability;
 import element.mobile.Hero;
+import element.motionless.Bone;
 import element.motionless.Empty;
 
 /**
@@ -18,7 +19,9 @@ public class Model extends Observable implements IModel
 	/** The message. */
 	
 	private GenMap genMap;
-	Permeability perm;
+	
+	private int Score;
+	
 	
 	
 	
@@ -28,7 +31,7 @@ public class Model extends Observable implements IModel
 	 */
 	public Model() 
 	{	System.out.print("creation du modele   ");
-		this.setGenMap(new GenMap ("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map1.txt", this));	
+		this.setGenMap(new GenMap ("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map5.txt", this));	
 		
 		
 	}
@@ -62,38 +65,41 @@ public class Model extends Observable implements IModel
 	
 	
 	 
-	this.genMap.Elem[Hero.getXH()][Hero.getYH()] =  new Empty(Hero.getXH(),Hero.getYH()) ;
+	
 	Hero.setXH(Hero.getXH()+X);
 	Hero.setYH(Hero.getYH()+Y);
-	this.genMap.Elem[Hero.getXH()][Hero.getYH()] =  new Hero(Hero.getYH(),Hero.getXH()) ;
-//	
-	//for(y=0; y<12	; y++)
-//	{
-//		for(x=0; x<20; x++)
-//		{
-//			
-//			
-//				System.out.println(x +"-" +y);
-//				//System.out.println(Hero.getK()+Hero.getJ());
-//				
-//				//this.genMap.Elem[y-Y][x-X] = new Empty(y,x);
-//				
+		if (genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()!= Permeability.BLOCKING){
+			if(genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()== Permeability.SCORING){
+				Score = Score+650;
 				
-				
-				
-				
-				
-				
-		//}
-		
-	
-//		}
-//		
-//	}
+			}
+			else{}
+			this.genMap.Elem[Hero.getXH()][Hero.getYH()] =  new Hero(Hero.getYH(),Hero.getXH()) ;
+			Hero.setXH(Hero.getXH()-X);
+			 Hero.setYH(Hero.getYH()-Y);
+			this.genMap.Elem[Hero.getXH()][Hero.getYH()] =  new Empty(Hero.getXH(),Hero.getYH()) ;
+			Hero.setXH(Hero.getXH()+X);
+			Hero.setYH(Hero.getYH()+Y);
+					}
+		else{Hero.setXH(Hero.getXH()-X);
+			 Hero.setYH(Hero.getYH()-Y);
+			
+		}
 		this.setChanged();
-		this.notifyObservers();	
-	}	
-	
+		this.notifyObservers();
+		System.out.println(Score);
+		}
+
+	public int getScore() {
+		return Score;
+	}
+
+
+
+	public void setScore(int score) {
+		Score = score;
+	}
+
 
 
 	public void MoveUP() {
