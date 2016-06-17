@@ -17,6 +17,10 @@ import contract.IView;
 public class View implements IView, Runnable {
 
 	/** The frame. */
+	 private boolean toucheUP = false;
+	 private boolean toucheDW= false;
+	 private boolean toucheRG = false;
+	 private boolean toucheLF = false;
 	private final ViewFrame viewFrame;
 
 	/**
@@ -37,26 +41,75 @@ public class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode ) 
+	protected static ControllerOrder keyCodeToControllerOrder(final boolean UP, final boolean DOWN ,final boolean LEFT,final boolean RIGHT ) 
 	{
-		switch (keyCode) 
-		{
-			case KeyEvent.VK_UP:
-				System.out.println("haut" );
-				return  ControllerOrder.UP; 					
-			case KeyEvent.VK_DOWN:
-					System.out.println("bas" );
-						return ControllerOrder.DOWN;
-			case KeyEvent.VK_LEFT:				 
-					System.out.println("droite" );
-						return ControllerOrder.LEFT;				
-			case KeyEvent.VK_RIGHT:				
-					System.out.println("right" );
-						return ControllerOrder.RIGHT;
+		if (UP ==true && DOWN == false ){
+			if(LEFT == true){
 				
-			default:
-				return ControllerOrder.NOP;
+				return ControllerOrder.UPPERLEFT;
+			}
+			if(RIGHT == true){
+				
+				return ControllerOrder.UPPERRIGHT;
+			}
+			else{
+				
+				return ControllerOrder.UP;
+			}
 		}
+		else if(UP ==false && DOWN == false){
+			if(LEFT == true){
+				
+				return ControllerOrder.LEFT;
+			}
+			if(RIGHT == true){
+				return ControllerOrder.RIGHT;
+			}
+				
+		}else if(UP ==false && DOWN == true){
+			
+		
+		
+			if(LEFT == true){
+				
+				return ControllerOrder.DOWNLEFT;			
+			}
+			if(RIGHT == true){
+				
+				return ControllerOrder.DOWNRIGHT;
+			}
+			else{
+			return ControllerOrder.DOWN;
+		}
+		}
+		else{
+			return ControllerOrder.NOP;
+		}
+		return ControllerOrder.NOP;
+//		if(LEFT == true){
+//			if(DOWN == true){
+//				return ControllerOrder.DOWNLEFT;
+//			}
+//			if(UP == true){
+//				return ControllerOrder.UPPERLEFT;
+//			}
+//			else {
+//				return ControllerOrder.LEFT;
+//			}
+//		
+//		}
+//		if(RIGHT == true){
+//			if(DOWN == true){
+//				return ControllerOrder.DOWNRIGHT;
+//			}
+//			if(UP == true){
+//				return ControllerOrder.UPPERRIGHT;
+//			}
+//			else {
+//				return ControllerOrder.RIGHT;
+//			}
+//		}
+		
 	}
 	/*
 	 * (non-Javadoc)

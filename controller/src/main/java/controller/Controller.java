@@ -77,11 +77,11 @@ public class Controller implements IController {
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 			case UP:
-				System.out.println("UP");
+				
 				this.model.MoveUP();
 				break;
 			case DOWN:
-				System.out.println("DOWN");
+				
 				this.model.MoveDW();
 				break;
 			case LEFT:
@@ -90,11 +90,25 @@ public class Controller implements IController {
 			case RIGHT:
 				this.model.MoveRT();
 				break;
-			case SHOOT:
+			//case SHOOT:
 				//this.model.shoot;
+			//	break;
+			case UPPERRIGHT:
+				this.model.MoveUPRT();
+				break;
+			case DOWNRIGHT :
+				this.model.MoveDWRT();
+				break;
+			case UPPERLEFT:
+				this.model.MoveUPLF();
+				break;
+			case DOWNLEFT:
+				this.model.MoveDWLF();
 				break;
 			case NOP:
-				//this.model.rien;
+				//System.out.println("anim");
+				//this.model.anim();
+				break;
 			
 
 			default:

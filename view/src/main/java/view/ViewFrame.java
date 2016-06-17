@@ -17,10 +17,14 @@ import contract.IModel;
  */
 class ViewFrame extends JFrame implements KeyListener 
 {
+	private boolean toucheUP = false;
+	 private boolean toucheDW= false;
+	 private boolean toucheRG = false;
+	 private boolean toucheLF = false;
 
 	/** The model. */
 	private  IModel	model;
-		
+
 	/** The controller. */
 	private IController	controller;
 	/** The Constant serialVersionUID. */
@@ -146,27 +150,44 @@ class ViewFrame extends JFrame implements KeyListener
 	 *          the message
 	 */
 	
-
+	 	      
+	       
+	 
+	        
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
 	 */
 	public void keyTyped(final KeyEvent e) 
-	{
-
+	{   
+		try { Thread.sleep(1); }
+        catch (InterruptedException ie) { ie.printStackTrace(); }
+	    		
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(final KeyEvent e) 
-	{	System.out.println("keypress");
+	{	
+		if (e.getKeyCode()== KeyEvent.VK_UP) {
+		    toucheUP = true; }
+		    else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+		    toucheDW = true; }
+		    else if (e.getKeyCode()== KeyEvent.VK_RIGHT) {
+		    toucheRG = true; }
+		    else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+		    toucheLF = true; }
+		
+	    		
+	
+    
 		
 			
-				this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
+			this.getController().orderPerform(View.keyCodeToControllerOrder(toucheUP,toucheDW,toucheLF,toucheRG));
 			
 			
 		
@@ -181,7 +202,14 @@ class ViewFrame extends JFrame implements KeyListener
 	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
 	public void keyReleased(final KeyEvent e) 
-	{
+	{if (e.getKeyCode()== KeyEvent.VK_UP) {
+	    toucheUP = false; }
+	    else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+	    toucheDW = false; }
+	    else if (e.getKeyCode()== KeyEvent.VK_RIGHT) {
+	    toucheRG = false; }
+	    else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+	    toucheLF = false; }
 		
 		
 	}

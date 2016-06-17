@@ -113,13 +113,13 @@ public class GenMap
 				switch(this.map[y][x])
 				{
 					case 'P' :this.Elem[y][x]  = new Hero(x,y);								break;
-					case 'C': this.Elem[y][x]  = new Bone(x,y);						   	break;				
+					case 'C': this.Elem[y][x]  = new Bone(x,y);						   	    break;				
 					case ' ': this.Elem[y][x]  = new Empty(x,y);							break;
 					case 'w': this.Elem[y][x]  = new HBone(x,y);							break;	
 					case 'x' :this.Elem[y][x]  = new VBone(x,y);							break;
 					case 'G' :this.Elem[y][x]  = new Purse(x,y);							break;
 					case 'B' :this.Elem[y][x]  = new crystalBall(x,y);						break;
-					case 'D' : this.Elem[y][x] = new Door(x,y);								break;
+					case 'D' : this.Elem[y][x] = new DoorClose(x,y);								break;
 					default  :this.Elem[y][x]  = new Empty(x,y);							break;		
 				}	
 			}

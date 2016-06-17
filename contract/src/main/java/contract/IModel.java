@@ -21,8 +21,8 @@ public interface IModel {
 		 */
 		//void loadMessage(String key);
 
-				/**
-		 * Gets the observable.
+				
+		/* * Gets the observable.
 		 *
 		 * @return the observable
 		 */
@@ -34,6 +34,12 @@ public interface IModel {
 		void MoveLF();
 		void MoveRT();
 		int getScore();
+		void MoveUPRT();
+		void MoveDWRT();
+		void MoveUPLF();
+		void MoveDWLF();
+	
+	//	void anim();
 		
 
 		

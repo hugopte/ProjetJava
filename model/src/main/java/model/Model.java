@@ -3,12 +3,13 @@ package model;
 import java.awt.Image;
 import java.util.Observable;
 
+//import javax.swing.Timer;
+
 import contract.IModel;
 import element.Permeability;
 import element.mobile.Hero;
-import element.motionless.Bone;
+import element.motionless.DoorOpen;
 import element.motionless.Empty;
-import element.motionless.Purse;
 
 /**
  * The Class Model.
@@ -22,7 +23,7 @@ public class Model extends Observable implements IModel
 	private GenMap genMap;
 	
 	private int Score = 0;
-	
+	//public Timer timer;
 	
 	
 	
@@ -32,8 +33,8 @@ public class Model extends Observable implements IModel
 	 */
 	public Model() 
 	{	System.out.print("creation du modele   ");
-		this.setGenMap(new GenMap ("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map5.txt", this));	
-		
+		this.setGenMap(new GenMap ("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map6.txt", this));	
+		//timer.start();
 		
 	}
 
@@ -62,7 +63,7 @@ public class Model extends Observable implements IModel
 	public void MoveHero (int Y, int X){
 	
 	
-	System.out.println(Hero.getYH()+" "+Hero.getXH());
+	
 	
 	
 	 
@@ -76,6 +77,32 @@ public class Model extends Observable implements IModel
 			}
 			else if(genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()== Permeability.DOORCLOSED){
 				System.out.println("Vous etes mort");
+			}
+			else if(genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()== Permeability.CRYSTALBALL){
+				int x=0, y=0;
+				for(y=0; y<12	; y++)
+				{
+					for(x=0; x<20; x++)
+					{
+						if(genMap.Elem[y][x].getPermeability() == Permeability.DOORCLOSED ){
+							this.genMap.Elem[y][x] = new DoorOpen(y,x);
+							
+						}
+					}
+				}
+			}
+			else if(genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()== Permeability.DOOROPEN){
+				
+				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				System.out.println("!!!!!!!!          !!!!!!!!");
+				System.out.println("!!!!!!!!          !!!!!!!!");
+				System.out.println("!!!!!!!!   Gagné  !!!!!!!!");
+				System.out.println("!!!!!!!!          !!!!!!!!");
+				System.out.println("!!!!!!!!          !!!!!!!!");
+				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				
 			}
 			this.genMap.Elem[Hero.getXH()][Hero.getYH()] =  new Hero(Hero.getYH(),Hero.getXH()) ;
 			Hero.setXH(Hero.getXH()-X);
@@ -148,6 +175,49 @@ public class Model extends Observable implements IModel
 	{
 		return this.genMap.Elem[x][y].getImage();
 	}
+
+
+
+	public void MoveUPRT() {
+		MoveHero(+1,-1);
+		
+	}
+
+
+
+	public void MoveDWRT() {
+		MoveHero(+1,+1);
+		
+	}
+
+
+
+	public void MoveUPLF() {
+		MoveHero(-1,-1);
+		
+	}
+
+
+
+	public void MoveDWLF() {
+		MoveHero(-1,+1);
+		
+	}
+
+
+
+//	public void anim() {
+//		System.out.println("Methode anim");
+//		Hero.setImagehero(Hero.getImagehero());
+//		
+//		Hero.setImagehero(Hero.getImagehero1());
+//		Hero.setImagehero(Hero.getImagehero2());
+//		Hero.setImagehero(Hero.getImagehero3());
+//		Hero.setImagehero(Hero.getImagehero4());
+//		Hero.setImagehero(Hero.getImagehero5());
+//		Hero.setImagehero(Hero.getImagehero6());
+//		
+//	}
 
 
 
