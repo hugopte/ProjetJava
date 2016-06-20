@@ -15,7 +15,13 @@ import contract.IView;
  * 
  */
 public class Controller implements IController {
+	/**
+	 * The Model
+	 */
 	private IModel	model;
+	/**
+	 * The View
+	 */
 	private IView	view;
 	
 	
