@@ -17,6 +17,12 @@ public class ViewPanel extends JPanel implements Observer {
 	 
 	 
 	private static final long serialVersionUID = 1L;
+	/**
+	 * Instantiates a new viewpanel.
+	 *
+	 * @param viewFrame
+	 *          the viewFrame
+	 */
 	public ViewPanel(final ViewFrame viewframe) {
 		this.setViewframe(viewframe);
 		viewframe.getModel().getObservable().addObserver(this);
@@ -34,7 +40,7 @@ public void paintComponent(Graphics g){
 	{
 		for(x=0; x<20; x++)
 		{
-		g.drawImage(viewframe.getModel().getImage(y, x) ,x*32,y*32, 32, 32, this);
+		g.drawImage(viewframe.getModel().getImage(y, x) ,x*32,y*32, 32,32 , this);
 		
 		}
 		

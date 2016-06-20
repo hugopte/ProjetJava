@@ -13,11 +13,11 @@ import contract.IModel;
 /**
  * The Class ViewFrame.
  *
- * @author Jean-Aymeric Diet
+ * @author Hugo PETTE
  */
 class ViewFrame extends JFrame implements KeyListener 
-{
-	private boolean toucheUP = false;
+{	/**The boolean fonction of the key*/
+	 private boolean toucheUP = false;
 	 private boolean toucheDW= false;
 	 private boolean toucheRG = false;
 	 private boolean toucheLF = false;
@@ -144,22 +144,13 @@ class ViewFrame extends JFrame implements KeyListener
 	    this.setLocationRelativeTo(null);
 	}
 
-	/**
-	 * Prints the message.
-	 *
-	 * @param message
-	 *          the message
-	 */
+	
 	
 	 	      
 	       
 	 
 	        
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
-	 */
+	
 	public void keyTyped(final KeyEvent e) 
 	{   
 		

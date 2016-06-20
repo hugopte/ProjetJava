@@ -195,7 +195,7 @@ public class Hero extends Mobile implements Runnable
 	}
 
 
-
+	
 
 	
 		

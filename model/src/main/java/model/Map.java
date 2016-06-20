@@ -89,14 +89,14 @@ public class Map
 				/*We create elements associated with letter*/
 				switch(this.map[y][x])
 				{
-					case 'P' :this.Elem[y][x]  = new Hero(x,y);								break;
-					case 'C': this.Elem[y][x]  = new Bone();						   	    break;				
+					case 'P' :this.Elem[y][x]  = new Hero(x,y);							break;
+					case 'C': this.Elem[y][x]  = new Bone();					   	    break;				
 					case ' ': this.Elem[y][x]  = new Empty();							break;
 					case 'w': this.Elem[y][x]  = new HBone();							break;	
 					case 'x' :this.Elem[y][x]  = new VBone();							break;
 					case 'G' :this.Elem[y][x]  = new Purse();							break;
 					case 'B' :this.Elem[y][x]  = new crystalBall();						break;
-					case 'D' : this.Elem[y][x] = new DoorClose();								break;
+					case 'D' : this.Elem[y][x] = new DoorClose();						break;
 					case 'M' :this.Elem[y][x]  = new Monster1(x,y);						break;
 					case 'H' :this.Elem[y][x]  = new Monster2(x,y);						break;
 					default  :this.Elem[y][x]  = new Empty();							break;		

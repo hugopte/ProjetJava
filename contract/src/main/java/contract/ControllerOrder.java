@@ -9,12 +9,11 @@ public enum ControllerOrder {
 	UPPERRIGHT,
 	UPPERLEFT,
 	DOWNLEFT,
-	DOWNRIGHT,
-	
-	UP,  	//haut
-	DOWN, 	//bas
-	LEFT,	//gauche
-	RIGHT,	//droite
-	SHOOT, 	//tirer 
-	NOP, 	//rien
+	DOWNRIGHT,	
+	UP,  	
+	DOWN, 	
+	LEFT,	
+	RIGHT,	
+	SHOOT, 	
+	NOP, 	
 }

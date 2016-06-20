@@ -19,10 +19,10 @@ import element.motionless.Empty;
 public class Model extends Observable  implements IModel,Runnable
 {
 	/** The message. */
-	//private Runnable t1 = new Hero(0,0) ;
+	private Runnable t1 = new Hero(0,0) ;
 	private Map Map;
 	private int Score = 0;
-	//private Thread thread = new Thread(t1);
+	private Thread thread = new Thread(t1);
 	
 	
 	
@@ -205,13 +205,13 @@ public class Model extends Observable  implements IModel,Runnable
 	}
 
 	public void Anim(){
-		//	System.out.println("fonction demarrage du thread");
+			System.out.println("fonction demarrage du thread");
 		//	thread.start();
 	}
 	
 	public void cancel(){
-	//	System.out.println("Cancel");
-	//	thread.interrupt();
+		System.out.println("Cancel");
+		//thread.interrupt();
 	}
 
 	public void run() {
@@ -223,7 +223,9 @@ public class Model extends Observable  implements IModel,Runnable
 //		 try {
 //			Thread.sleep(200);
 //		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
+//		
+	
+	// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}this.setChanged();
 //		this.notifyObservers();
@@ -281,6 +283,8 @@ public class Model extends Observable  implements IModel,Runnable
 //	}
 
 	public void Refresh(){
+		this.setChanged();
+		this.notifyObservers();
 	
 	}
 
