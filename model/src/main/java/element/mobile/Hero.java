@@ -2,7 +2,7 @@ package element.mobile;
 import element.Permeability;
 
 
-public class Hero extends Mobile
+public class Hero extends Mobile /*implements Runnable*/
 {
 	private static int XH;
 	private static int YH;
@@ -13,11 +13,12 @@ public class Hero extends Mobile
 	private static String imagehero4 = "C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_ul.png";
 	private static String imagehero5 = "C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_u.png";
 	private static String imagehero6 = "C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_ur.png";
+	private static String imagehero7 = "C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_r.png";
 	public Hero(int PositionYH, int PositionXH) {
 		super( imagehero , Permeability.BLOCKING, PositionYH, PositionXH);
 		Hero.setYH (PositionYH);
 		Hero.setXH(PositionXH);
-
+		
 		
 	
 	}
@@ -112,6 +113,83 @@ public class Hero extends Mobile
 
 
 
+
+	public static String getImagehero7() {
+		return imagehero7;
+	}
+
+
+
+
+	public static void setImagehero7(String imagehero7) {
+		Hero.imagehero7 = imagehero7;
+	}
+
+
+
+/*
+	public void run() {
+		while(1!=0){System.out.println("Lancement animation");
+		 imagehero = imagehero1;
+		 try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}// TODO Auto-generated method stub
+		 imagehero = imagehero2;
+		 try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 imagehero = imagehero3;
+		 try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 imagehero = imagehero4;
+		 try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 imagehero = imagehero5;
+		 try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 imagehero = imagehero6;
+		 try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 imagehero = imagehero7;
+		 try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 imagehero = imagehero;
+		 try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	}
+*/
 
 	
 

@@ -17,10 +17,7 @@ import contract.IView;
 public class View implements IView, Runnable {
 
 	/** The frame. */
-	 private boolean toucheUP = false;
-	 private boolean toucheDW= false;
-	 private boolean toucheRG = false;
-	 private boolean toucheLF = false;
+	
 	private final ViewFrame viewFrame;
 
 	/**
@@ -41,7 +38,7 @@ public class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final boolean UP, final boolean DOWN ,final boolean LEFT,final boolean RIGHT ) 
+	protected static ControllerOrder keyCodeToControllerOrder(final boolean UP, final boolean DOWN ,final boolean LEFT,final boolean RIGHT,final boolean SPACE ) 
 	{
 		if (UP ==true && DOWN == false ){
 			if(LEFT == true){
@@ -84,8 +81,13 @@ public class View implements IView, Runnable {
 		}
 		else{
 			return ControllerOrder.NOP;
+			
+					}
+		if(SPACE == true){
+			return ControllerOrder.SHOOT;
 		}
-		return ControllerOrder.NOP;
+		
+				return ControllerOrder.NOP;
 //		if(LEFT == true){
 //			if(DOWN == true){
 //				return ControllerOrder.DOWNLEFT;

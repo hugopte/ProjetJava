@@ -27,7 +27,7 @@ public class ViewPanel extends JPanel implements Observer {
 	
 public void paintComponent(Graphics g){
 	
-
+	g.clearRect(0, 300, 4000, 4000);
     
     int x=0, y=0;
 	for(y=0; y<12	; y++)

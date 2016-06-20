@@ -9,14 +9,14 @@ import element.mobile.Hero;
 
 
 
-public class GenMap
+public class Map
 {
 	public char[][] map; 
-	public  Element  Elem[] [];
+	protected  Element  Elem[] [];
 	private String MapName;
 	private Model model;
 	
-	public GenMap(String MapName, Model model)
+	public Map(String MapName, Model model)
 	{
 		this.setMapName(MapName); 
 		this.setModel(model);
@@ -27,14 +27,7 @@ public class GenMap
 		System.out.println("GenMap");
 	}
 	
-	public  Element getElem(int y, int x) {
-		return Elem[y][x];
-	}
-
-	public  void setElem(Element elem, int y, int x) 
-	{
-		Elem[y][x] = elem;
-	}
+	
 
 	
 	
@@ -146,7 +139,14 @@ public class GenMap
 	public void setModel(Model model) {
 		this.model = model;
 	}
-	
+	public  Element getElem(int y, int x) {
+		return Elem[y][x];
+	}
+
+	public  void setElem(Element elem, int y, int x) 
+	{
+		Elem[y][x] = elem;
+	}
 	
 	
 }

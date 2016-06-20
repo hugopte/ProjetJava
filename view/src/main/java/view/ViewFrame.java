@@ -21,10 +21,11 @@ class ViewFrame extends JFrame implements KeyListener
 	 private boolean toucheDW= false;
 	 private boolean toucheRG = false;
 	 private boolean toucheLF = false;
+	 private boolean toucheSP = false;
 
 	/** The model. */
-	private  IModel	model;
-
+	private  IModel	model ;
+	
 	/** The controller. */
 	private IController	controller;
 	/** The Constant serialVersionUID. */
@@ -139,7 +140,7 @@ class ViewFrame extends JFrame implements KeyListener
 		this.addKeyListener(this);
 		this.setContentPane(new ViewPanel(this));
 		this.setTitle("Projet Loranne");
-	    this.setSize(640, 600);
+	    this.setSize(640, 440);
 	    this.setLocationRelativeTo(null);
 	}
 
@@ -163,8 +164,9 @@ class ViewFrame extends JFrame implements KeyListener
 	{   
 		try { Thread.sleep(1); }
         catch (InterruptedException ie) { ie.printStackTrace(); }
-	    		
+	    	
 	}
+	
 	
 	/*
 	 * (non-Javadoc)
@@ -181,13 +183,15 @@ class ViewFrame extends JFrame implements KeyListener
 		    toucheRG = true; }
 		    else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 		    toucheLF = true; }
-		
+		    else if (e.getKeyCode()==KeyEvent.VK_SPACE){
+		    	toucheSP = true;
+		    } model.cancel();		
 	    		
 	
     
 		
 			
-			this.getController().orderPerform(View.keyCodeToControllerOrder(toucheUP,toucheDW,toucheLF,toucheRG));
+			this.getController().orderPerform(View.keyCodeToControllerOrder(toucheUP,toucheDW,toucheLF,toucheRG,toucheSP));
 			
 			
 		
@@ -210,7 +214,11 @@ class ViewFrame extends JFrame implements KeyListener
 	    toucheRG = false; }
 	    else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 	    toucheLF = false; }
-		
+	    else if (e.getKeyCode()==KeyEvent.VK_SPACE){
+	    	toucheSP = false;
+	    }
+	
+		model.Anim();
 		
 	}
 

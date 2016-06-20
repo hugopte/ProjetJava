@@ -8,6 +8,7 @@ import java.util.Observable;
 import contract.IModel;
 import element.Permeability;
 import element.mobile.Hero;
+import element.mobile.Magic;
 import element.motionless.DoorOpen;
 import element.motionless.Empty;
 
@@ -16,14 +17,15 @@ import element.motionless.Empty;
  *
  * @author Jean-Aymeric Diet
  */
-public class Model extends Observable implements IModel 
+public class Model extends Observable  implements IModel,Runnable
 {
 	/** The message. */
 	
-	private GenMap genMap;
-	
+	private Map Map;
 	private int Score = 0;
-	//public Timer timer;
+	//private Thread thread;
+	
+
 	
 	
 	
@@ -33,27 +35,15 @@ public class Model extends Observable implements IModel
 	 */
 	public Model() 
 	{	System.out.print("creation du modele   ");
-		this.setGenMap(new GenMap ("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map6.txt", this));	
-		//timer.start();
+		
+		this.setMap(new Map ("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map1.txt", this));	
+		//thread = new Thread(this);
+		
 		
 	}
 
 
 	
-//	public void loadMessage(final String key) {
-//		try {
-//			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-//			this.setMessage(daoHelloWorld.find(key).getMessage());
-//		} catch (final SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getObservable()
-	 */
 	public Observable getObservable() {
 		return this;
 	}
@@ -70,48 +60,47 @@ public class Model extends Observable implements IModel
 	
 	Hero.setXH(Hero.getXH()+X);
 	Hero.setYH(Hero.getYH()+Y);
-		if (genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()!= Permeability.BLOCKING){
-			if(genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()== Permeability.SCORING){
+		if (Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()!= Permeability.BLOCKING){
+			if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.SCORE){
 				Score = Score+650;
 				
 			}
-			else if(genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()== Permeability.DOORCLOSED){
-				dead();
+			else if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.DOORCLOSED){
+				
 			}
-			else if(genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()== Permeability.CRYSTALBALL){
+			else if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.CRYSTALBALL){
 				int x=0, y=0;
 				for(y=0; y<12	; y++)
 				{
 					for(x=0; x<20; x++)
 					{
-						if(genMap.Elem[y][x].getPermeability() == Permeability.DOORCLOSED ){
-							this.genMap.Elem[y][x] = new DoorOpen(y,x);
+						if(Map.getElem(y,x).getPermeability() == Permeability.DOORCLOSED ){
+							this.Map.Elem[y][x] = new DoorOpen(y,x);
 							
 						}
 					}
 				}
 			}
-			else if(genMap.Elem[Hero.getXH()][Hero.getYH()].getPermeability()== Permeability.DOOROPEN){
-				System.out.println("           !!!!!!!!!!!!!!!!!!!!!!!!!!");
-				System.out.println("           !!!!!!!!!!!!!!!!!!!!!!!!!!");
-				System.out.println("           !!!!!!!!!!!!!!!!!!!!!!!!!!");
-				System.out.println("           !!!!!!!!          !!!!!!!!");
-				System.out.println("           !!!!!!!!          !!!!!!!!");
-				System.out.println("           !!!!!!!!   Gagné  !!!!!!!!");
-				System.out.println("           !!!!!!!!          !!!!!!!!");
-				System.out.println("           !!!!!!!!          !!!!!!!!");
-				System.out.println("           !!!!!!!!!!!!!!!!!!!!!!!!!!");
-				System.out.println("           !!!!!!!!!!!!!!!!!!!!!!!!!!");
-				System.out.println("           !!!!!!!!!!!!!!!!!!!!!!!!!!");
+			else if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.DOOROPEN){
+			
+				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				System.out.println("!!!!!!!!          !!!!!!!!");
+				System.out.println("!!!!!!!!          !!!!!!!!");
+				System.out.println("!!!!!!!!   Gagné  !!!!!!!!");
+				System.out.println("!!!!!!!!          !!!!!!!!");
+				System.out.println("!!!!!!!!          !!!!!!!!");
+				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				
+				System.exit(0);
 			}
-			this.genMap.Elem[Hero.getXH()][Hero.getYH()] =  new Hero(Hero.getYH(),Hero.getXH()) ;
+			this.Map.Elem[Hero.getXH()][Hero.getYH()] =  new Hero(Hero.getYH(),Hero.getXH()) ;
 			Hero.setXH(Hero.getXH()-X);
 			 Hero.setYH(Hero.getYH()-Y);
-			this.genMap.Elem[Hero.getXH()][Hero.getYH()] =  new Empty(Hero.getXH(),Hero.getYH()) ;
+			this.Map.Elem[Hero.getXH()][Hero.getYH()] =  new Empty(Hero.getXH(),Hero.getYH()) ;
 			Hero.setXH(Hero.getXH()+X);
 			Hero.setYH(Hero.getYH()+Y);
 					}
-		else{Hero.setXH(Hero.getXH()-X);
+		else{Hero.setXH(Hero.getXH()-X);					 
 			 Hero.setYH(Hero.getYH()-Y);
 			
 		}
@@ -125,110 +114,166 @@ public class Model extends Observable implements IModel
 	}
 
 
-
 	public void setScore(int score) {
 		Score = score;
 	}
 
 
+	
 
-	public void MoveUP() {
-		MoveHero(0,-1);
-		System.out.println("Haut");
-		
+
+	public Map getMap() {
+		return Map;
 	}
 
 
-
-	public void MoveDW() {
-		MoveHero(0,+1);// TODO Auto-generated method stub
-		System.out.println("bas");
-	}
-
-
-
-	public void MoveLF() {
-		MoveHero(-1,0);// TODO Auto-generated method stub
-		System.out.println("gauche");
-	}
-
-
-
-	public void MoveRT() {
-		MoveHero(+1,0);// TODO Auto-generated method stub
-		System.out.println("droite");
-	}
-
-
-
-	public GenMap getGenMap() {
-		return genMap;
-	}
-
-
-
-	public void setGenMap(GenMap genMap) {
-		this.genMap = genMap;
+	public void setMap(Map genMap) {
+		this.Map = genMap;
 	}
 
 	public Image getImage(int x, int y) 
 	{
-		return this.genMap.Elem[x][y].getImage();
+		return this.Map.getElem(x,y).getImage();
 	}
 
 
-
 	public void MoveUPRT() {
+		Hero.setImagehero(Hero.getImagehero6());
 		MoveHero(+1,-1);
 		
 	}
 
 
-
 	public void MoveDWRT() {
+		Hero.setImagehero(Hero.getImagehero());
 		MoveHero(+1,+1);
 		
 	}
 
 
-
 	public void MoveUPLF() {
+		Hero.setImagehero(Hero.getImagehero4());
 		MoveHero(-1,-1);
 		
 	}
 
 
-
 	public void MoveDWLF() {
+		Hero.setImagehero(Hero.getImagehero2());
 		MoveHero(-1,+1);
 		
 	}
-	public void dead(){
-		Hero.setImagehero("C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_l.png");
+	public void MoveUP() {
+		Hero.setImagehero(Hero.getImagehero5());
+		MoveHero(0,-1);
+		System.out.println("Haut");
 		
-		this.setChanged();
-		this.notifyObservers();
-		Hero.setImagehero("C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_2.png");			
-		this.setChanged();
-		this.notifyObservers();
-		Hero.setImagehero("C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_3.png");
 		
-		this.setChanged();
-		this.notifyObservers();
-		Hero.setImagehero("C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_4.png");
+		
 	}
 
 
-//	public void anim() {
-//		System.out.println("Methode anim");
-//		Hero.setImagehero(Hero.getImagehero());
+	public void MoveDW() {
+		Hero.setImagehero(Hero.getImagehero1());
+		MoveHero(0,+1);// TODO Auto-generated method stub
+		System.out.println("bas");
+		
+	}
+
+
+	public void MoveLF() {
+		Hero.setImagehero(Hero.getImagehero3());
+		MoveHero(-1,0);// TODO Auto-generated method stub
+		System.out.println("gauche");
+		
+		
+	}
+
+
+	public void MoveRT() {
+		Hero.setImagehero(Hero.getImagehero7());
+		MoveHero(+1,0);// TODO Auto-generated method stub
+		System.out.println("droite");
+		
+
+	}
+	
+	public void shoot(int UP,int  DOWN,int LEFT, int RIGHT){
 //		
-//		Hero.setImagehero(Hero.getImagehero1());
-//		Hero.setImagehero(Hero.getImagehero2());
-//		Hero.setImagehero(Hero.getImagehero3());
-//		Hero.setImagehero(Hero.getImagehero4());
-//		Hero.setImagehero(Hero.getImagehero5());
-//		Hero.setImagehero(Hero.getImagehero6());
+	}
+
+	public void Anim(){
+			System.out.println("fonction demarrage du thread");
+		//	thread.start();
+	}
+	@SuppressWarnings("deprecation")
+	public void cancel(){
+	//	thread.stop();
+	}
+
+	public void run() {
+		System.out.println("je bouge pas");
+	}
+//		System.out.println(" RUN!!! ");
+//		while(1!=0){
+//		Hero.setImagehero(Hero.getImagehero1()) ;
+//		 try {
+//			Thread.sleep(200);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}this.setChanged();
+//		this.notifyObservers();
+//			Hero.setImagehero(Hero.getImagehero2()) ;
+//			 try {
+//				Thread.sleep(200);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}this.setChanged();
+//			this.notifyObservers();
+//			 Hero.setImagehero(Hero.getImagehero3()) ;
+//			 try {
+//				Thread.sleep(200);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}this.setChanged();
+//			this.notifyObservers();
+//			 Hero.setImagehero(Hero.getImagehero4()) ;
+//			 try {
+//				Thread.sleep(200);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}this.setChanged();
+//			this.notifyObservers();
+//			 Hero.setImagehero(Hero.getImagehero5()) ;
+//			 try {
+//				Thread.sleep(200);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}this.setChanged();
+//			this.notifyObservers();
+//			 Hero.setImagehero(Hero.getImagehero6()) ;
+//			 try {
+//					Thread.sleep(200);
+//				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}this.setChanged();
+//				this.notifyObservers();
+//			 Hero.setImagehero(Hero.getImagehero7()) ;
+//			 try {
+//				Thread.sleep(200);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}this.setChanged();
+//			this.notifyObservers();
+//			 
+//		}
 //		
 //	}
 
@@ -237,15 +282,25 @@ public class Model extends Observable implements IModel
 	
 
 
-	
-
-
-
-	
-
-
-
-
 
 	
 }
+	
+
+
+
+	
+
+
+	
+
+
+
+	
+
+
+
+
+
+	
+

@@ -1,11 +1,11 @@
-      CwCwwwwwwwwwC 
-   CwwC x         CC
-   x    x    G     x
+CCCCCCCwCwwwwwwwwwC 
+CCCCwwC x         CC
+CCCx    x    G     x
 CwwC    x     G    x
 x G CwwwCwwwwwC    C
 xG          B      D
 x G CwwwCwwwwwC    C
 CwwC    x    P     x
-   x    x          D
-   CwwC x         CC
-      CwCwwwwwwwwwC 
+CC x    x          x
+CCCCwwC x         CC
+CCCCCCCwCwwwwwwwwwCC 

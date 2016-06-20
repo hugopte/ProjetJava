@@ -3,7 +3,7 @@ package contract;
 import java.awt.Image;
 import java.util.Observable;
 
-import model.GenMap;
+import model.Map;
 
 /**
  * The Interface IModel.
@@ -27,7 +27,7 @@ public interface IModel {
 		 * @return the observable
 		 */
 		Observable getObservable();
-		public GenMap getGenMap();
+		public Map getMap();
 		public Image getImage(int x, int y);
 		void MoveUP();
 		void MoveDW();
@@ -38,8 +38,9 @@ public interface IModel {
 		void MoveDWRT();
 		void MoveUPLF();
 		void MoveDWLF();
-	
-	//	void anim();
+		void Anim();
+		void cancel();
+		void shoot(int moveUP, int moveDW, int moveLF, int moveRT);
 		
 
 		

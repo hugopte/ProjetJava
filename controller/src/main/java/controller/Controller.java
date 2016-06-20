@@ -90,9 +90,9 @@ public class Controller implements IController {
 			case RIGHT:
 				this.model.MoveRT();
 				break;
-			//case SHOOT:
-				//this.model.shoot;
-			//	break;
+			case SHOOT:
+			//this.model.shoot(this.model.MoveUP(),this.model.MoveDW(),this.model.MoveLF(),this.model.MoveRT());
+				break;
 			case UPPERRIGHT:
 				this.model.MoveUPRT();
 				break;
@@ -106,8 +106,8 @@ public class Controller implements IController {
 				this.model.MoveDWLF();
 				break;
 			case NOP:
-				//System.out.println("anim");
-				//this.model.anim();
+				System.out.println("anim");
+				
 				break;
 			
 
