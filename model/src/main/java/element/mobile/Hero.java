@@ -2,8 +2,9 @@ package element.mobile;
 import element.Permeability;
 
 
-public class Hero extends Mobile /*implements Runnable*/
+public class Hero extends Mobile implements Runnable 
 {
+	
 	private static int XH;
 	private static int YH;
 	private static String imagehero = "C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_br.png";
@@ -14,6 +15,7 @@ public class Hero extends Mobile /*implements Runnable*/
 	private static String imagehero5 = "C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_u.png";
 	private static String imagehero6 = "C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_ur.png";
 	private static String imagehero7 = "C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_r.png";
+	private static String imagehero8 = "C:/Users/Hugo PETTE/git/ProjetJava/Sprite/lorann_br.png";
 	public Hero(int PositionYH, int PositionXH) {
 		super( imagehero , Permeability.BLOCKING, PositionYH, PositionXH);
 		Hero.setYH (PositionYH);
@@ -127,8 +129,9 @@ public class Hero extends Mobile /*implements Runnable*/
 
 
 
-/*
+
 	public void run() {
+		System.out.println("RUN!!!!!");
 		while(1!=0){System.out.println("Lancement animation");
 		 imagehero = imagehero1;
 		 try {
@@ -136,7 +139,8 @@ public class Hero extends Mobile /*implements Runnable*/
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}// TODO Auto-generated method stub
+		}
+		 // TODO Auto-generated method stub
 		 imagehero = imagehero2;
 		 try {
 			Thread.sleep(200);
@@ -179,7 +183,7 @@ public class Hero extends Mobile /*implements Runnable*/
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 imagehero = imagehero;
+		 imagehero = imagehero8;
 		 try {
 			Thread.sleep(200);
 		} catch (InterruptedException e) {
@@ -189,9 +193,9 @@ public class Hero extends Mobile /*implements Runnable*/
 	}
 
 	}
-*/
 
-	
+
+
 
 	
 		

@@ -8,7 +8,6 @@ import java.util.Observable;
 import contract.IModel;
 import element.Permeability;
 import element.mobile.Hero;
-import element.mobile.Magic;
 import element.motionless.DoorOpen;
 import element.motionless.Empty;
 
@@ -20,12 +19,11 @@ import element.motionless.Empty;
 public class Model extends Observable  implements IModel,Runnable
 {
 	/** The message. */
-	
+	//private Runnable t1 = new Hero(0,0) ;
 	private Map Map;
 	private int Score = 0;
-	//private Thread thread;
+	//private Thread thread = new Thread(t1);
 	
-
 	
 	
 	
@@ -36,7 +34,7 @@ public class Model extends Observable  implements IModel,Runnable
 	public Model() 
 	{	System.out.print("creation du modele   ");
 		
-		this.setMap(new Map ("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map1.txt", this));	
+		this.setMap(new Map ("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map3.txt", this));	
 		//thread = new Thread(this);
 		
 		
@@ -58,30 +56,37 @@ public class Model extends Observable  implements IModel,Runnable
 	
 	 
 	
-	Hero.setXH(Hero.getXH()+X);
+	Hero.setXH(Hero.getXH()+X);					//We add new coordinates to the moving
 	Hero.setYH(Hero.getYH()+Y);
-		if (Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()!= Permeability.BLOCKING){
-			if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.SCORE){
+		if (Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()!= Permeability.BLOCKING){ // We enter on the loop if the next permability of the element isn't blocking  
+			if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.SCORE){ // If the permeability of the next element is SCORE we add 650 to the score
 				Score = Score+650;
 				
 			}
-			else if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.DOORCLOSED){
+			else if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.DOORCLOSED){ //If we encounter a door closed we die 
+				
+				
+				
+				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				System.out.println("!!!!!!!!!!!!You die!!!!!!!!!!!!!!");
+				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				System.exit(0);
 				
 			}
-			else if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.CRYSTALBALL){
+			else if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.CRYSTALBALL){//If we encounter a crystal ball, we cross the map in order to change doorclosed element to dooropen
 				int x=0, y=0;
 				for(y=0; y<12	; y++)
 				{
 					for(x=0; x<20; x++)
 					{
 						if(Map.getElem(y,x).getPermeability() == Permeability.DOORCLOSED ){
-							this.Map.Elem[y][x] = new DoorOpen(y,x);
+							this.Map.Elem[y][x] = new DoorOpen();
 							
 						}
 					}
 				}
 			}
-			else if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.DOOROPEN){
+			else if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.DOOROPEN){ // if we encounter a open door 
 			
 				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
 				System.out.println("!!!!!!!!          !!!!!!!!");
@@ -93,10 +98,10 @@ public class Model extends Observable  implements IModel,Runnable
 				
 				System.exit(0);
 			}
-			this.Map.Elem[Hero.getXH()][Hero.getYH()] =  new Hero(Hero.getYH(),Hero.getXH()) ;
-			Hero.setXH(Hero.getXH()-X);
+			this.Map.Elem[Hero.getXH()][Hero.getYH()] =  new Hero(Hero.getYH(),Hero.getXH()) ;// We create new hero at the new emplacement
+			Hero.setXH(Hero.getXH()-X);														// 
 			 Hero.setYH(Hero.getYH()-Y);
-			this.Map.Elem[Hero.getXH()][Hero.getYH()] =  new Empty(Hero.getXH(),Hero.getYH()) ;
+			this.Map.Elem[Hero.getXH()][Hero.getYH()] =  new Empty() ; // We create new empty element at the ancient element
 			Hero.setXH(Hero.getXH()+X);
 			Hero.setYH(Hero.getYH()+Y);
 					}
@@ -106,7 +111,7 @@ public class Model extends Observable  implements IModel,Runnable
 		}
 		this.setChanged();
 		this.notifyObservers();
-		System.out.println(Score);
+	
 		}
 
 	public int getScore() {
@@ -137,82 +142,80 @@ public class Model extends Observable  implements IModel,Runnable
 	}
 
 
-	public void MoveUPRT() {
-		Hero.setImagehero(Hero.getImagehero6());
-		MoveHero(+1,-1);
+	public void MoveUPRT() {							//we move up and right
+		Hero.setImagehero(Hero.getImagehero6());		//We define Hero's sprite according to the moving
+		MoveHero(+1,-1);								//We call the Move fonction with the parameters as the moving coordinates 
 		
 	}
 
 
-	public void MoveDWRT() {
-		Hero.setImagehero(Hero.getImagehero());
-		MoveHero(+1,+1);
+	public void MoveDWRT() {						    //We move down and right
+		Hero.setImagehero(Hero.getImagehero());			//We define Hero's sprite according to the moving
+		MoveHero(+1,+1);								//We call the Move fonction with the parameters as the moving coordinates 
+				
+	}
+
+
+	public void MoveUPLF() {							//We move up and left
+		Hero.setImagehero(Hero.getImagehero4());		//We define Hero's sprite according to the moving
+		MoveHero(-1,-1);								//We call the Move fonction with the parameters as the moving coordinates 
 		
 	}
 
 
-	public void MoveUPLF() {
-		Hero.setImagehero(Hero.getImagehero4());
-		MoveHero(-1,-1);
+	public void MoveDWLF() {							//We move down and left
+		Hero.setImagehero(Hero.getImagehero2());		//We define Hero's sprite according to the moving
+		MoveHero(-1,+1);								//We call the Move fonction with the parameters as the moving coordinates 
+	
+		
+	}
+	public void MoveUP() {								//We move up
+		Hero.setImagehero(Hero.getImagehero5());		//We define Hero's sprite according to the moving
+		MoveHero(0,-1);									//We call the Move fonction with the parameters as the moving coordinates 
 		
 	}
 
 
-	public void MoveDWLF() {
-		Hero.setImagehero(Hero.getImagehero2());
-		MoveHero(-1,+1);
-		
-	}
-	public void MoveUP() {
-		Hero.setImagehero(Hero.getImagehero5());
-		MoveHero(0,-1);
-		System.out.println("Haut");
-		
-		
-		
-	}
-
-
-	public void MoveDW() {
-		Hero.setImagehero(Hero.getImagehero1());
-		MoveHero(0,+1);// TODO Auto-generated method stub
-		System.out.println("bas");
-		
-	}
-
-
-	public void MoveLF() {
-		Hero.setImagehero(Hero.getImagehero3());
-		MoveHero(-1,0);// TODO Auto-generated method stub
-		System.out.println("gauche");
+	public void MoveDW() {								//We move down
+		Hero.setImagehero(Hero.getImagehero1());		//We define Hero's sprite according to the moving
+		MoveHero(0,+1);// 								//We call the Move fonction with the parameters as the moving coordinates 
 		
 		
 	}
 
 
-	public void MoveRT() {
-		Hero.setImagehero(Hero.getImagehero7());
-		MoveHero(+1,0);// TODO Auto-generated method stub
-		System.out.println("droite");
+	public void MoveLF() {								//We move left
+		Hero.setImagehero(Hero.getImagehero3());		//We define Hero's sprite according to the moving
+		MoveHero(-1,0);									//We call the Move fonction with the parameters as the moving coordinates 
+		
+		
+		
+	}
+
+
+	public void MoveRT() {								//We move right
+		Hero.setImagehero(Hero.getImagehero7());		//We define Hero's sprite according to the moving
+		MoveHero(+1,0);
 		
 
 	}
 	
-	public void shoot(int UP,int  DOWN,int LEFT, int RIGHT){
-//		
+	public void shoot(){
+		System.out.println("SHOOT");
 	}
 
 	public void Anim(){
-			System.out.println("fonction demarrage du thread");
+		//	System.out.println("fonction demarrage du thread");
 		//	thread.start();
 	}
-	@SuppressWarnings("deprecation")
+	
 	public void cancel(){
-	//	thread.stop();
+	//	System.out.println("Cancel");
+	//	thread.interrupt();
 	}
 
 	public void run() {
-		System.out.println("je bouge pas");
+		
 	}
 //		System.out.println(" RUN!!! ");
 //		while(1!=0){
@@ -277,9 +280,22 @@ public class Model extends Observable  implements IModel,Runnable
 //		
 //	}
 
+	public void Refresh(){
+	
+	}
+
 
 
 	
+
+
+
+	
+
+
+
+	
+
 
 
 

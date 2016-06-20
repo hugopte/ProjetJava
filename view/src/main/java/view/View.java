@@ -1,7 +1,5 @@
 package view;
 
-import java.awt.event.KeyEvent;
-
 import javax.swing.SwingUtilities;
 
 import contract.ControllerOrder;
@@ -84,6 +82,7 @@ public class View implements IView, Runnable {
 			
 					}
 		if(SPACE == true){
+			
 			return ControllerOrder.SHOOT;
 		}
 		

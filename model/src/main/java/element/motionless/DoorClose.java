@@ -4,8 +4,8 @@ import element.Permeability;
 
 public class DoorClose extends MotionLessElement {
 
-	public DoorClose( int X, int Y) {
-		super("C:/Users/Hugo PETTE/git/ProjetJava/Sprite/gate_closed.png", Permeability.DOORCLOSED, X, Y);
+	public DoorClose( ) {
+		super("C:/Users/Hugo PETTE/git/ProjetJava/Sprite/gate_closed.png", Permeability.DOORCLOSED );
 	}
 	
 	}

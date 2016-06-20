@@ -162,8 +162,7 @@ class ViewFrame extends JFrame implements KeyListener
 	 */
 	public void keyTyped(final KeyEvent e) 
 	{   
-		try { Thread.sleep(1); }
-        catch (InterruptedException ie) { ie.printStackTrace(); }
+		
 	    	
 	}
 	

@@ -40,9 +40,9 @@ public interface IModel {
 		void MoveDWLF();
 		void Anim();
 		void cancel();
-		void shoot(int moveUP, int moveDW, int moveLF, int moveRT);
+		void shoot();
+		void Refresh();
 		
-
 		
 		
 	

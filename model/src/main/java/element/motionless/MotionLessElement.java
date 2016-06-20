@@ -5,9 +5,9 @@ import element.Permeability;
 public abstract class MotionLessElement extends Element 
 {
 
-	public MotionLessElement(String picture, final Permeability permeability,int X,int Y) 
+	public MotionLessElement(String picture, final Permeability permeability) 
 	{
-		super(picture, permeability, X,Y);
+		super(picture, permeability,0,0);
 	}
 
 }
