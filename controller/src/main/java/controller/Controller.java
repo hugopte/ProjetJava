@@ -71,12 +71,9 @@ public class Controller implements IController {
 		this.model = model;
 	}
 
-/**
- *  The orderperform 
- *  
- *  @param the controllerOrder
- *  
- */
+	/**
+	 * The orderperform
+	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 			case UP:

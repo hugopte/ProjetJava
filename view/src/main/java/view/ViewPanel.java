@@ -25,11 +25,12 @@ public class ViewPanel extends JPanel implements Observer {
 	 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+
 	/**
 	 * Instantiates a new viewpanel.
-	 *
-	 * @param viewFrame
-	 *          the viewFrame
+	 * @param viewframe
+	 * the ViewFrame
 	 */
 	public ViewPanel(final ViewFrame viewframe) {
 		this.setViewframe(viewframe);
@@ -38,9 +39,9 @@ public class ViewPanel extends JPanel implements Observer {
 		
 	}
 
+	
 	/**
-	 * @param GraphicsConfiguration
-	 * 			the GraphicsConfiguration
+	 * PaintComponent
 	 */
 public void paintComponent(Graphics g){
 	
@@ -60,14 +61,9 @@ public void paintComponent(Graphics g){
 	
   } 
 
-
-
-
-
 public ViewFrame getViewframe() {
 	return viewframe;
 }
-
 
 public void setViewframe(ViewFrame viewframe) {
 	this.viewframe = viewframe;

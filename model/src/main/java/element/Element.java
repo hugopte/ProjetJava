@@ -36,9 +36,14 @@ public abstract class Element  {
 	/**
 	 * Instantiate new element
 	 * @param NomImage
+	 * Root of the picture
 	 * @param permeability
+	 * Type of the element
 	 * @param PositionY
+	 * PositionY of the element
 	 * @param PositionX
+	 * PositionX of the element
+	 * 
 	 */
 	public Element( String NomImage ,Permeability permeability,int PositionY,int PositionX) {
 		this.permeability = permeability ;
@@ -66,6 +71,7 @@ public abstract class Element  {
 	/**
 	 * SetNomImage
 	 * @param nomImage
+	 * Define NomImage
 	 */
 	public void setNomImage(String nomImage) {
 		NomImage = nomImage;
@@ -82,6 +88,7 @@ public abstract class Element  {
 	/**
 	 * SetImage
 	 * @param elem
+	 * Define Element
 	 */
 	public void setImage(Image elem) {
 		Elem = elem;
@@ -98,6 +105,7 @@ public abstract class Element  {
 	/** 
 	 * SetPermeability
 	 * @param permeability
+	 * Define Permeability
 	 */
 	public void setPermeability(Permeability permeability) {
 		this.permeability = permeability;
@@ -114,6 +122,7 @@ public abstract class Element  {
 /**
  * SetY
  * @param y
+ * Define the position Y
  */
 	public void setY(int y) {
 		Y = y;
@@ -130,18 +139,10 @@ public abstract class Element  {
 /**
  * SetX
  * @param x
+ * Define the position X
  */
 	public void setX(int x) {
 		X = x;
 	}
-
-
-	
-
-
-	
-	
-
-	
 	
 }

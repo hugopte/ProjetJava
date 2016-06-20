@@ -8,14 +8,24 @@ import element.mobile.Monster1;
 import element.mobile.Monster2;
 
 
-
+/**
+ * 
+ * @author Hugo Pette
+ *
+ */
 public class Map
 {
 	public char[][] map; 
 	protected  Element  Elem[] [];
 	private String MapName;
 	private Model model;
-	
+	/**
+	 * The map
+	 * @param MapName
+	 * mapName
+	 * @param model
+	 * the model
+	 */
 	public Map(String MapName, Model model)
 	{
 		this.setMapName(MapName); 
@@ -26,11 +36,9 @@ public class Map
 		this.createModel();
 		
 	}
-	
-	
-
-	
-	
+	/**
+	 *allows the creation of the map
+	 */
 	public void CreateMap()
 	{	System.out.println("CreateMap");
 		int x = 0, y=0;
@@ -69,15 +77,24 @@ public class Map
 		  
 	      
 	}
-	
+	/**
+	 * Getters for map
+	 * @return map
+	 */
 	public char[][] getMap() {
 		return map;
 	}
-
+	/**
+	 * Setters of the map
+	 * @param map
+	 * The map 
+	 */
 	public void setMap(char[][] map) {
 		this.map = map;
 	}
-
+	/**
+	 * Allows the creation of the elements combine has letters
+	 */
 	public void createModel()
 	{
 		int x=0, y=0;
@@ -109,30 +126,59 @@ public class Map
 	
 	
 
-	
+	/**
+	 * Getters MapName
+	 * @return MapName
+	 */
 	public String getMapName() {
 		return MapName;
 	}
-
+	/**
+	 * Setters mapName
+	 * @param mapName
+	 * The Name of the map
+	 */
 	public void setMapName(String mapName) {
 		MapName = mapName;
 	}
-
+	/**
+	 * Getters model
+	 * @return model
+	 */
 	public Model getModel() {
 		return model;
 	}
-
+	/**
+	 * Setters model
+	 * @param model
+	 * the model
+	 */
 	public void setModel(Model model) {
 		this.model = model;
 	}
+	/**
+	 * Getters Elements
+	 * @param y
+	 * The positionY of the element
+	 * @param x
+	 * The positionX of the element
+	 * @return Elem
+	 */
 	public  Element getElem(int y, int x) {
 		return Elem[y][x];
 	}
-
+	/**
+	 * Setters Elements
+	 * @param elem
+	 * The elements
+	 * @param y
+	 * The positionY of the element
+	 * @param x
+	 * The positionX of the element
+	 */
 	public  void setElem(Element elem, int y, int x) 
 	{
 		Elem[y][x] = elem;
 	}
-	
 	
 }

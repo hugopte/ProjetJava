@@ -42,7 +42,9 @@ public class Hero extends Mobile implements Runnable
 	/**
 	 * Instantiates a hero
 	 * @param PositionYH
+	 * Initial position YH of the Hero
 	 * @param PositionXH
+	 * Initial position XH of the Hero
 	 */
 	
 	public Hero(int PositionYH, int PositionXH) {
@@ -58,6 +60,7 @@ public class Hero extends Mobile implements Runnable
 	/**
 	 * SetImagehero1
 	 * @param imagehero1
+	 * Image Heroes one
 	 */
 
 	public static void setImagehero1(String imagehero1) {
@@ -134,55 +137,80 @@ public class Hero extends Mobile implements Runnable
 		return imagehero;
 	}
 
-
-
-
+	
+/**
+ *  Sets ImageHero
+ * @param imagehero
+ * The hero is a imagehero
+ */
 	public static void setImagehero(String imagehero) {
 		Hero.imagehero = imagehero;
 	}
 
 
 
-
+/**
+ * Get position XH
+ * @return XH
+ */
 	public static int getXH() {
 		return XH;
 	}
 
 
 
-
+/**
+ * Set position XH
+ * @param xH
+ * Position XH
+ */
 	public static void setXH(int xH) {
 		XH = xH;
 	}
-
+/**
+ * Get  position YH
+ * @return YH
+ */
 	public static int getYH() {
 		return YH;
 	}
 
 
 
-
+/**
+ * Set position YH
+ * @param yH
+ * Position YH
+ */
 	public static void setYH(int yH) {
 		YH = yH;
 	}
 
 
 
-
+/**
+ * Get Image hero 7
+ * @return imagehero7
+ */
 	public static String getImagehero7() {
 		return imagehero7;
 	}
 
 
 
-
+/**
+ * Set Image Hero 7
+ * @param imagehero7
+ * Heroes is an imagehero7
+ */
 	public static void setImagehero7(String imagehero7) {
 		Hero.imagehero7 = imagehero7;
 	}
 
 
-
-
+/**
+ * Animation of the hero but not implemented yet
+ */
 	public void run() {
 		System.out.println("RUN!!!!!");
 		while(1!=0){System.out.println("Lancement animation");

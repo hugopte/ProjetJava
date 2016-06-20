@@ -14,14 +14,23 @@ import element.motionless.Empty;
 /**
  * The Class Model.
  *
- * @author Jean-Aymeric Diet
+ * @author Hugo Pette
  */
 public class Model extends Observable  implements IModel,Runnable
 {
 	/** The message. */
 	private Runnable t1 = new Hero(0,0) ;
+	/**
+	 * The map
+	 */
 	private Map Map;
+	/**
+	 * Initialization Score
+	 */
 	private int Score = 0;
+	/**
+	 * instantiation thread
+	 */
 	private Thread thread = new Thread(t1);
 	
 	
@@ -41,20 +50,23 @@ public class Model extends Observable  implements IModel,Runnable
 	}
 
 
-	
+	/**
+	 * Getters Observable
+	 */
 	public Observable getObservable() {
 		return this;
 	}
 
 
-
+	/**
+	 * The function move Hero
+	 * @param Y
+	 * The Y position of the hero
+	 * @param X
+	 * The X position of the hero
+	 */
 	public void MoveHero (int Y, int X){
 	
-	
-	
-	
-	
-	 
 	
 	Hero.setXH(Hero.getXH()+X);					//We add new coordinates to the moving
 	Hero.setYH(Hero.getYH()+Y);
@@ -113,12 +125,18 @@ public class Model extends Observable  implements IModel,Runnable
 		this.notifyObservers();
 	
 		}
-
+	/**
+	 * Getters Score
+	 */
 	public int getScore() {
 		return Score;
 	}
 
-
+	/**
+	 * Setters Score
+	 * @param score
+	 * The score
+	 */
 	public void setScore(int score) {
 		Score = score;
 	}
@@ -126,56 +144,77 @@ public class Model extends Observable  implements IModel,Runnable
 
 	
 
-
+	/**
+	 * Getters map
+	 */
 	public Map getMap() {
 		return Map;
 	}
 
-
+	/**
+	 * Setters Map
+	 * @param genMap
+	 * The generation map 
+	 */
 	public void setMap(Map genMap) {
 		this.Map = genMap;
 	}
-
+	/**
+	 * Getters Image
+	 */
 	public Image getImage(int x, int y) 
 	{
 		return this.Map.getElem(x,y).getImage();
 	}
 
-
+	/**
+	 * Move UP and Right
+	 */
 	public void MoveUPRT() {							//we move up and right
 		Hero.setImagehero(Hero.getImagehero6());		//We define Hero's sprite according to the moving
 		MoveHero(+1,-1);								//We call the Move fonction with the parameters as the moving coordinates 
 		
 	}
 
-
+	/**
+	 * Move Down and Right
+	 */
 	public void MoveDWRT() {						    //We move down and right
 		Hero.setImagehero(Hero.getImagehero());			//We define Hero's sprite according to the moving
 		MoveHero(+1,+1);								//We call the Move fonction with the parameters as the moving coordinates 
 				
 	}
 
-
+	/**
+	 * Move UP and Left
+	 */
 	public void MoveUPLF() {							//We move up and left
 		Hero.setImagehero(Hero.getImagehero4());		//We define Hero's sprite according to the moving
 		MoveHero(-1,-1);								//We call the Move fonction with the parameters as the moving coordinates 
 		
 	}
 
-
+	/**
+	 * Move down and left
+	 */
 	public void MoveDWLF() {							//We move down and left
 		Hero.setImagehero(Hero.getImagehero2());		//We define Hero's sprite according to the moving
 		MoveHero(-1,+1);								//We call the Move fonction with the parameters as the moving coordinates 
 	
 		
 	}
+	/**
+	 * Move UP
+	 */
 	public void MoveUP() {								//We move up
 		Hero.setImagehero(Hero.getImagehero5());		//We define Hero's sprite according to the moving
 		MoveHero(0,-1);									//We call the Move fonction with the parameters as the moving coordinates 
 		
 	}
 
-
+	/**
+	 * Move Down
+	 */
 	public void MoveDW() {								//We move down
 		Hero.setImagehero(Hero.getImagehero1());		//We define Hero's sprite according to the moving
 		MoveHero(0,+1);// 								//We call the Move fonction with the parameters as the moving coordinates 
@@ -183,7 +222,9 @@ public class Model extends Observable  implements IModel,Runnable
 		
 	}
 
-
+	/**
+	 * Move Left
+	 */
 	public void MoveLF() {								//We move left
 		Hero.setImagehero(Hero.getImagehero3());		//We define Hero's sprite according to the moving
 		MoveHero(-1,0);									//We call the Move fonction with the parameters as the moving coordinates 
@@ -192,7 +233,9 @@ public class Model extends Observable  implements IModel,Runnable
 		
 	}
 
-
+	/**
+	 * Move Right
+	 */
 	public void MoveRT() {								//We move right
 		Hero.setImagehero(Hero.getImagehero7());		//We define Hero's sprite according to the moving
 		MoveHero(+1,0);
@@ -286,41 +329,5 @@ public class Model extends Observable  implements IModel,Runnable
 		this.setChanged();
 		this.notifyObservers();
 	
-	}
-
-
-
-	
-
-
-
-	
-
-
-
-	
-
-
-
-
-	
+	}	
 }
-	
-
-
-
-	
-
-
-	
-
-
-
-	
-
-
-
-
-
-	
-

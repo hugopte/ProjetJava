@@ -22,8 +22,13 @@ public interface IModel {
 		 * @return the map
 		 */
 		public Map getMap();
+
 		/**
 		 * Gets the image
+		 * @param x
+		 * PositionX element
+		 * @param y
+		 * PositionY element
 		 * @return the image
 		 */
 		public Image getImage(int x, int y);
@@ -45,6 +50,7 @@ public interface IModel {
 		void MoveRT();
 		/**
 		 * Get Score
+		 * @return Score
 		 */
 		int getScore();
 		/**
