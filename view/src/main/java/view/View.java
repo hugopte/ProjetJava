@@ -45,77 +45,55 @@ public class View implements IView, Runnable {
 	protected static ControllerOrder keyCodeToControllerOrder(final boolean UP, final boolean DOWN ,final boolean LEFT,final boolean RIGHT,final boolean SPACE ) 
 	{
 		if (UP ==true && DOWN == false ){
-			if(LEFT == true){
+						if(LEFT == true){
 				
-				return ControllerOrder.UPPERLEFT;
-			}
-			if(RIGHT == true){
+								return ControllerOrder.UPPERLEFT;
+						}
+						if(RIGHT == true){
 				
-				return ControllerOrder.UPPERRIGHT;
-			}
-			else{
+								return ControllerOrder.UPPERRIGHT;
+						}
+						else{
 				
-				return ControllerOrder.UP;
-			}
+								return ControllerOrder.UP;
+						}
 		}
 		else if(UP ==false && DOWN == false){
-			if(LEFT == true){
-				
-				return ControllerOrder.LEFT;
-			}
-			if(RIGHT == true){
-				return ControllerOrder.RIGHT;
-			}
+						if(LEFT == true){
+					
+							return ControllerOrder.LEFT;
+						}
+						if(RIGHT == true){
+							return ControllerOrder.RIGHT;
+						}
 				
 		}else if(UP ==false && DOWN == true){
 			
 		
 		
-			if(LEFT == true){
+						if(LEFT == true){
 				
-				return ControllerOrder.DOWNLEFT;			
-			}
-			if(RIGHT == true){
+							return ControllerOrder.DOWNLEFT;			
+						}
+						if(RIGHT == true){
 				
-				return ControllerOrder.DOWNRIGHT;
-			}
-			else{
-			return ControllerOrder.DOWN;
-		}
-		}
-		else{
-			return ControllerOrder.NOP;
+							return ControllerOrder.DOWNRIGHT;
+						}
+						else{
+							return ControllerOrder.DOWN;
+						}
+				}
+				else{
+					return ControllerOrder.NOP;
 			
-					}
+				}
 		if(SPACE == true){
 			
 			return ControllerOrder.SHOOT;
 		}
 		
 				return ControllerOrder.NOP;
-//		if(LEFT == true){
-//			if(DOWN == true){
-//				return ControllerOrder.DOWNLEFT;
-//			}
-//			if(UP == true){
-//				return ControllerOrder.UPPERLEFT;
-//			}
-//			else {
-//				return ControllerOrder.LEFT;
-//			}
-//		
-//		}
-//		if(RIGHT == true){
-//			if(DOWN == true){
-//				return ControllerOrder.DOWNRIGHT;
-//			}
-//			if(UP == true){
-//				return ControllerOrder.UPPERRIGHT;
-//			}
-//			else {
-//				return ControllerOrder.RIGHT;
-//			}
-//		}
+
 		
 	}
 	/*

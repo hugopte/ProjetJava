@@ -63,7 +63,7 @@ public class Model extends Observable  implements IModel,Runnable
 				Score = Score+650;
 				
 			}
-			else if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.DOORCLOSED){ //If we encounter a door closed we die 
+			else if(Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability()== Permeability.DOORCLOSED ||Map.getElem(Hero.getXH(),Hero.getYH()).getPermeability() == Permeability.KILL ){ //If we encounter a door closed we die 
 				
 				
 				
@@ -204,13 +204,13 @@ public class Model extends Observable  implements IModel,Runnable
 		System.out.println("SHOOT");
 	}
 
-	public void Anim(){
-			System.out.println("fonction demarrage du thread");
+	public void Anim(){									// We call fonction Anim but not implemented yet
+			
 		//	thread.start();
 	}
 	
 	public void cancel(){
-		System.out.println("Cancel");
+		
 		//thread.interrupt();
 	}
 
