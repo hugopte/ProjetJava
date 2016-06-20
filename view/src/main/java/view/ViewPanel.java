@@ -6,16 +6,24 @@ import java.util.Observer;
 
 
 import javax.swing.JPanel;
+
+/**
+ * The Class ViewPanel.
+ *
+ * @author Hugo PETTE
+ */
  
 public class ViewPanel extends JPanel implements Observer { 
-
+/**
+ *  the Viewframe
+ */
 	private ViewFrame viewframe;
 	
 
 
 
 	 
-	 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	/**
 	 * Instantiates a new viewpanel.
@@ -30,7 +38,10 @@ public class ViewPanel extends JPanel implements Observer {
 		
 	}
 
-	
+	/**
+	 * @param GraphicsConfiguration
+	 * 			the GraphicsConfiguration
+	 */
 public void paintComponent(Graphics g){
 	
 	g.clearRect(0, 300, 4000, 4000);

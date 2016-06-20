@@ -8,17 +8,22 @@ import contract.IModel;
 import contract.IView;
 
 
-
-// TODO: Auto-generated Javadoc
 /**
  * The Class Controller.
+ * 
+ * @author Hugo Pette
+ * 
  */
 public class Controller implements IController {
 	private IModel	model;
 	private IView	view;
 	
 	
-
+	/**
+	 * Gets the Views.
+	 *
+	 * @return the Views
+	 */
 	
 	public IView getView() {
 		return view;
@@ -38,15 +43,6 @@ public class Controller implements IController {
 		
 		
 	}
-		
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see contract.IController#control()
-	 */
-//	public void control() {
-//		this.view.printMessage("Debut du jeu");
-//	}
 
 	/**
 	 * Sets the view.
@@ -69,11 +65,12 @@ public class Controller implements IController {
 		this.model = model;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IController#orderPerform(contract.ControllerOrder)
-	 */
+/**
+ *  The orderperform 
+ *  
+ *  @param the controllerOrder
+ *  
+ */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 			case UP:
@@ -115,16 +112,12 @@ public class Controller implements IController {
 				break;
 		}
 	}
-
+	/**
+	 * Gets the Model.
+	 *
+	 * @return the Model
+	 */
 	public IModel getModel() {
 		return model;
 	}
-
-	public void control() {
-		this.view.printMessage("hello");
-		
-	}
-
-	
-
 }

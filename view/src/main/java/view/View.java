@@ -10,7 +10,7 @@ import contract.IView;
 /**
  * The Class View.
  *
- * @author Jean-Aymeric Diet
+ * @author Hugo PETTE
  */
 public class View implements IView, Runnable {
 
@@ -37,7 +37,9 @@ public class View implements IView, Runnable {
 	 * @param  toucheDOWN
 	 *          the touch DOWN pressed
 	 * @param  toucheLEFT
-	 *          the touch LEFT presse
+	 *          the touch LEFT pressed
+	 * @param toucheSPACE
+	 * 			the touch SPACE pressed
 	 * @return the controller order
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final boolean UP, final boolean DOWN ,final boolean LEFT,final boolean RIGHT,final boolean SPACE ) 
@@ -130,6 +132,7 @@ public class View implements IView, Runnable {
 	 *
 	 * @see java.lang.Runnable#run()
 	 */
+	
 	public void run() {
 		this.viewFrame.setVisible(true);
 	}
@@ -144,10 +147,11 @@ public class View implements IView, Runnable {
 		this.viewFrame.setController(controller);
 	}
 
+	/*
 	public void printMessage(String string) {
 		this.viewFrame.printMessage(string);
 		
-	}
+	}*/
 
 	
 	

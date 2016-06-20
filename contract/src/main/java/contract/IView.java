@@ -4,11 +4,11 @@ package contract;
 /**
  * The Interface IView.
  *
- * @author Jean-Aymeric Diet
+ * @author Hugo PETTE
  */
 public interface IView {
 
-	void printMessage(String string);
+	//void printMessage(String string);
 	
 	
 }

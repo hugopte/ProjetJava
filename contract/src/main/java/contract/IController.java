@@ -1,6 +1,10 @@
 package contract;
 
-import java.io.IOException;
+/**
+ * The Class ViewFrame.
+ *
+ * @author Hugo PETTE
+ */
 
 /**
  * The Interface IController.
@@ -9,18 +13,14 @@ import java.io.IOException;
  */
 public interface IController {
 
-	/**
-	 * Control.
-	 */
-	public void control();
+	
 
 	/**
 	 * Order perform.
 	 *
 	 * @param controllerOrder
 	 * 
-	 * the controller order
-	 * @throws IOException 
+	 * the controller order 
 	 */
 	public void orderPerform(ControllerOrder controllerOrder) ;
 }
