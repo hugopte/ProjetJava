@@ -38,6 +38,8 @@ public class View implements IView, Runnable {
 	 *          the touch DOWN pressed
 	 * @param LEFT
 	 *          the touch LEFT pressed
+	 * @param RIGHT
+	 * 			the touch RIGHT pressed
 	 * @param SPACE
 	 * 			the touch SPACE pressed
 	 * @return the controller order
