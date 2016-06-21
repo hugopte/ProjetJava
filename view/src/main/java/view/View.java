@@ -32,13 +32,13 @@ public class View implements IView, Runnable {
 	/**
 	 * Key code to controller order.
 	 *
-	 * @param  toucheUP
+	 * @param UP
 	 *          the touch UP pressed
-	 * @param  toucheDOWN
+	 * @param DOWN
 	 *          the touch DOWN pressed
-	 * @param  toucheLEFT
+	 * @param LEFT
 	 *          the touch LEFT pressed
-	 * @param toucheSPACE
+	 * @param SPACE
 	 * 			the touch SPACE pressed
 	 * @return the controller order
 	 */
