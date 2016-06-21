@@ -43,8 +43,8 @@ public class Model extends Observable  implements IModel,Runnable
 	public Model() 
 	{	System.out.print("creation du modele   ");
 		
-		this.setMap(new Map ("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map3.txt", this));	
-		//thread = new Thread(this);
+		this.setMap(new Map ("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map4.txt", this));	
+	
 		
 		
 	}

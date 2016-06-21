@@ -21,7 +21,7 @@ public class ModelTest {
 	@Test
 	public void testMap() {
 		Model model = new Model();
-		 Map testMap = new Map("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map3.txt",model);
+		 Map testMap = new Map("C:/Users/Hugo PETTE/git/ProjetJava/model/images/map6.txt",model);
 	
 		int x=0, y=0;
 		for(y=0; y<12	; y++)

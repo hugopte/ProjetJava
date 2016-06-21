@@ -116,7 +116,7 @@ public class Map
 					case 'D' : this.Elem[y][x] = new DoorClose();						break;
 					case 'M' :this.Elem[y][x]  = new Monster1(x,y);						break;
 					case 'H' :this.Elem[y][x]  = new Monster2(x,y);						break;
-					//default  :this.Elem[y][x]  = new Empty();							break;		
+				default  :this.Elem[y][x]  = new Empty();							break;		
 				}	
 			}
 			System.out.println(" ");
